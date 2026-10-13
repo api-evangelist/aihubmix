@@ -1,0 +1,19 @@
+name: AIHubMix Packages
+generated: '2026-10-13'
+method: searched
+source: https://registry.npmjs.org/@aihubmix/ai-sdk-provider; https://docs.aihubmix.com/cn/api/Third-PartyIntegrationTechnicalGuide.md
+packages:
+- name: '@aihubmix/ai-sdk-provider'
+  registry: npm
+  url: https://www.npmjs.com/package/@aihubmix/ai-sdk-provider
+  language: TypeScript
+  official: true
+  version: 2.2.1
+  published: '2026-06-11'
+- name: aihubmix (CLI)
+  registry: github-releases
+  url: https://github.com/AIhubmix/platfrom-cli/releases
+  language: Go
+  official: true
+  version: v0.4.0
+  published: '2026-07-27'

@@ -1,0 +1,50 @@
+generated: '2026-10-13'
+method: derived
+source: openapi/aihubmix-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: gatewayBearer
+  type: http
+  scheme: bearer
+  bearerFormat: API Key
+  description: |-
+    Gateway-issued API key, formatted as `sk-gateway-xxxxxxxx`.
+    Used by OpenAI-shaped endpoints (/v1/chat/completions, etc.).
+  sources:
+  - openapi/aihubmix-openapi.yml
+- name: gatewayAnthropicKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: |-
+    Used by Anthropic-shaped endpoints (/v1/messages). The value is
+    the gateway API key, shared with OpenAI-shaped endpoints. Clients
+    identifying as anthropic-sdk-* will use this header.
+  sources:
+  - openapi/aihubmix-openapi.yml
+- name: gatewayGeminiKey
+  type: apiKey
+  in: header
+  parameter: x-goog-api-key
+  description: |-
+    Used by Gemini-shaped endpoints (/v1beta/...). The value is the
+    gateway API key, shared with other endpoint shapes. The google-genai
+    SDK uses this header by default.
+  sources:
+  - openapi/aihubmix-openapi.yml
+- name: gatewayGeminiQuery
+  type: apiKey
+  in: query
+  parameter: key
+  description: |-
+    Query-parameter fallback for Gemini-shaped endpoints. Some SDKs
+    and tools only support the `?key=` form. Value is the same as
+    `gatewayGeminiKey`.
+  sources:
+  - openapi/aihubmix-openapi.yml

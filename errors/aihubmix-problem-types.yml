@@ -1,0 +1,73 @@
+name: AIHubMix HTTP Status Codes
+generated: '2026-10-13'
+method: searched
+source: https://docs.aihubmix.com/en/FAQs/HTTP-Codes.md
+docs: https://docs.aihubmix.com/en/FAQs/HTTP-Codes
+format: provider-specific
+problems:
+- status: 503
+  title: Incorrect model ID. Please request to view the model page or you do not have
+    permission to use this model
+  description: No available channel to handle request
+- status: 503
+  title: Rate limited by provider – contact support to request higher concurrency
+    or try again later.
+  description: Model encounters official rate limiting
+- status: 429
+  title: The xx model Too many requests; please try again later.
+  description: Request frequency exceeds limit
+- status: 403
+  title: Your account balance is insufficient. Please recharge your account to continue
+    using the API.
+  type: insufficient_user_quota
+  description: User balance insufficient, needs recharge
+- status: 403
+  title: Account suspended.
+  description: User status disabled or blacklisted
+- status: 403
+  title: Forbidden – insufficient permissions.
+  description: User role permissions insufficient
+- status: 403
+  title: Forbidden – key(last 6 digits of request key) allowed only from approved
+    IP ranges.
+  description: IP not in token's allowed network range
+- status: 403
+  title: Forbidden – key(last 6 digits of request key) not authorized to access the
+    requested model.
+  description: Token doesn't support requested model
+- status: 403
+  title: Key error；(last 6 digits of request key)
+  description: Non-admin user attempting to specify channel
+- status: 403
+  title: Forbidden – channel has been disabled.
+  description: Channel status is disabled
+- status: 401
+  title: Unauthorized – no access token supplied; please log in and include a valid
+    token.
+  description: No Authorization header provided
+- status: 401
+  title: Unauthorized – access token is invalid or expired.
+  description: Access token validation failed
+- status: 400
+  title: Bad Request – invalid channel ID.
+  description: Channel ID format error or doesn't exist
+- status: 400
+  title: prompt is required
+  type: prompt_missing
+  description: Missing prompt for image generation
+- status: 400
+  title: prompt is too long
+  type: prompt_too_long
+  description: Prompt exceeds length limit
+- status: 400
+  title: input is too long
+  type: text_too_long
+  description: Audio input text too long
+- status: 400
+  title: size not supported
+  type: size_not_supported
+  description: Image size not supported by model
+- status: 400
+  title: invalid value of n
+  type: n_not_within_range
+  description: n parameter value not in valid range

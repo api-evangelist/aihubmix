@@ -1,0 +1,16 @@
+generated: '2026-10-13'
+method: none
+source:
+- https://zapier.com/apps/aihubmix/integrations
+- https://n8n.io/integrations/aihubmix/
+- https://composio.dev/toolkits/aihubmix
+- https://monid.ai/tools/aihubmix
+checked:
+- https://composio.dev/toolkits/aihubmix
+- https://monid.ai/tools/aihubmix
+- https://n8n.io/integrations/aihubmix/
+- https://zapier.com/apps/aihubmix/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

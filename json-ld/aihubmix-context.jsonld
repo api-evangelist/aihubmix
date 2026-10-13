@@ -1,0 +1,852 @@
+{
+  "@context": {
+    "@vocab": "https://aihubmix.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "aihubmix": "https://aihubmix.com/schema#",
+    "AIHubMixTaskStatus": "aihubmix:AIHubMixTaskStatus",
+    "AIHubMixTaskError": "aihubmix:AIHubMixTaskError",
+    "code": {
+      "@id": "aihubmix:code",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "aihubmix:message",
+      "@type": "xsd:string"
+    },
+    "upstream_detail": {
+      "@id": "aihubmix:upstream_detail"
+    },
+    "AIHubMixTaskArtifact": "aihubmix:AIHubMixTaskArtifact",
+    "index": {
+      "@id": "aihubmix:index",
+      "@type": "xsd:integer"
+    },
+    "result_id": {
+      "@id": "aihubmix:result_id",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "aihubmix:type",
+      "@type": "xsd:string"
+    },
+    "content_type": {
+      "@id": "aihubmix:content_type",
+      "@type": "xsd:string"
+    },
+    "content_url": {
+      "@id": "aihubmix:content_url",
+      "@type": "xsd:string"
+    },
+    "b64_json": {
+      "@id": "aihubmix:b64_json",
+      "@type": "xsd:string"
+    },
+    "AIHubMixMediaTask": "aihubmix:AIHubMixMediaTask",
+    "id": {
+      "@id": "aihubmix:id",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "aihubmix:object",
+      "@type": "xsd:string"
+    },
+    "model": {
+      "@id": "aihubmix:model",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "aihubmix:status",
+      "@type": "@id"
+    },
+    "output": {
+      "@id": "aihubmix:output",
+      "@container": "@list"
+    },
+    "error": {
+      "@id": "aihubmix:error",
+      "@type": "@id"
+    },
+    "created_at": {
+      "@id": "aihubmix:created_at",
+      "@type": "xsd:integer"
+    },
+    "completed_at": {
+      "@id": "aihubmix:completed_at",
+      "@type": "xsd:integer"
+    },
+    "expires_at": {
+      "@id": "aihubmix:expires_at",
+      "@type": "xsd:integer"
+    },
+    "AIHubMixMediaTaskList": "aihubmix:AIHubMixMediaTaskList",
+    "data": {
+      "@id": "aihubmix:data",
+      "@container": "@list"
+    },
+    "has_more": {
+      "@id": "aihubmix:has_more",
+      "@type": "xsd:boolean"
+    },
+    "next_after": {
+      "@id": "aihubmix:next_after",
+      "@type": "xsd:string"
+    },
+    "AIHubMixImageCreateRequest": "aihubmix:AIHubMixImageCreateRequest",
+    "prompt": {
+      "@id": "aihubmix:prompt",
+      "@type": "xsd:string"
+    },
+    "n": {
+      "@id": "aihubmix:n",
+      "@type": "xsd:integer"
+    },
+    "size": {
+      "@id": "aihubmix:size",
+      "@type": "xsd:string"
+    },
+    "aspect_ratio": {
+      "@id": "aihubmix:aspect_ratio",
+      "@type": "xsd:string"
+    },
+    "seed": {
+      "@id": "aihubmix:seed",
+      "@type": "xsd:integer"
+    },
+    "negative_prompt": {
+      "@id": "aihubmix:negative_prompt",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "aihubmix:image"
+    },
+    "images": {
+      "@id": "aihubmix:images",
+      "@container": "@list"
+    },
+    "mask": {
+      "@id": "aihubmix:mask"
+    },
+    "output_format": {
+      "@id": "aihubmix:output_format",
+      "@type": "xsd:string"
+    },
+    "response_format": {
+      "@id": "aihubmix:response_format",
+      "@type": "xsd:string"
+    },
+    "async": {
+      "@id": "aihubmix:async",
+      "@type": "xsd:boolean"
+    },
+    "webhook_url": {
+      "@id": "aihubmix:webhook_url",
+      "@type": "@id"
+    },
+    "webhook_events_filter": {
+      "@id": "aihubmix:webhook_events_filter",
+      "@type": "@id"
+    },
+    "extra": {
+      "@id": "aihubmix:extra"
+    },
+    "AIHubMixMediaReference": "aihubmix:AIHubMixMediaReference",
+    "url": {
+      "@id": "aihubmix:url",
+      "@type": "@id"
+    },
+    "AIHubMixFrameImage": "aihubmix:AIHubMixFrameImage",
+    "frame_type": {
+      "@id": "aihubmix:frame_type",
+      "@type": "xsd:string"
+    },
+    "image_url": {
+      "@id": "aihubmix:image_url"
+    },
+    "AIHubMixVideoCreateRequest": "aihubmix:AIHubMixVideoCreateRequest",
+    "duration": {
+      "@id": "aihubmix:duration",
+      "@type": "xsd:integer"
+    },
+    "resolution": {
+      "@id": "aihubmix:resolution",
+      "@type": "xsd:string"
+    },
+    "input_references": {
+      "@id": "aihubmix:input_references",
+      "@container": "@list"
+    },
+    "frame_images": {
+      "@id": "aihubmix:frame_images",
+      "@container": "@list"
+    },
+    "generate_audio": {
+      "@id": "aihubmix:generate_audio",
+      "@type": "xsd:boolean"
+    },
+    "AIHubMixUnifiedTask": "aihubmix:AIHubMixUnifiedTask",
+    "AIHubMixUnifiedTaskList": "aihubmix:AIHubMixUnifiedTaskList",
+    "AIHubMixModelSummary": "aihubmix:AIHubMixModelSummary",
+    "model_id": {
+      "@id": "aihubmix:model_id",
+      "@type": "xsd:string"
+    },
+    "model_name": {
+      "@id": "aihubmix:model_name",
+      "@type": "xsd:string"
+    },
+    "types": {
+      "@id": "aihubmix:types",
+      "@type": "xsd:string"
+    },
+    "input_modalities": {
+      "@id": "aihubmix:input_modalities",
+      "@type": "xsd:string"
+    },
+    "schema_checked": {
+      "@id": "aihubmix:schema_checked",
+      "@type": "xsd:boolean"
+    },
+    "AIHubMixModelListResponse": "aihubmix:AIHubMixModelListResponse",
+    "success": {
+      "@id": "aihubmix:success",
+      "@type": "xsd:boolean"
+    },
+    "AIHubMixEndpointDefinition": "aihubmix:AIHubMixEndpointDefinition",
+    "endpoint": {
+      "@id": "aihubmix:endpoint",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "aihubmix:method",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "aihubmix:path",
+      "@type": "xsd:string"
+    },
+    "content_types": {
+      "@id": "aihubmix:content_types",
+      "@container": "@list"
+    },
+    "lifecycle": {
+      "@id": "aihubmix:lifecycle"
+    },
+    "request": {
+      "@id": "aihubmix:request"
+    },
+    "AIHubMixModelEndpointsResponse": "aihubmix:AIHubMixModelEndpointsResponse",
+    "default_endpoint": {
+      "@id": "aihubmix:default_endpoint",
+      "@type": "xsd:string"
+    },
+    "modality": {
+      "@id": "aihubmix:modality",
+      "@type": "xsd:string"
+    },
+    "endpoints": {
+      "@id": "aihubmix:endpoints",
+      "@container": "@list"
+    },
+    "AudioResponseFormat": "aihubmix:AudioResponseFormat",
+    "ChatCompletionAllowedTools": "aihubmix:ChatCompletionAllowedTools",
+    "mode": {
+      "@id": "aihubmix:mode",
+      "@type": "xsd:string"
+    },
+    "tools": {
+      "@id": "aihubmix:tools",
+      "@container": "@list"
+    },
+    "ChatCompletionAllowedToolsChoice": "aihubmix:ChatCompletionAllowedToolsChoice",
+    "allowed_tools": {
+      "@id": "aihubmix:allowed_tools",
+      "@type": "@id"
+    },
+    "ChatCompletionFunctionCallOption": "aihubmix:ChatCompletionFunctionCallOption",
+    "name": {
+      "@id": "aihubmix:name",
+      "@type": "xsd:string"
+    },
+    "ChatCompletionFunctions": "aihubmix:ChatCompletionFunctions",
+    "description": {
+      "@id": "aihubmix:description",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "aihubmix:parameters",
+      "@type": "@id"
+    },
+    "ChatCompletionMessageCustomToolCall": "aihubmix:ChatCompletionMessageCustomToolCall",
+    "custom": {
+      "@id": "aihubmix:custom"
+    },
+    "ChatCompletionMessageToolCall": "aihubmix:ChatCompletionMessageToolCall",
+    "function": {
+      "@id": "aihubmix:function"
+    },
+    "ChatCompletionMessageToolCallChunk": "aihubmix:ChatCompletionMessageToolCallChunk",
+    "ChatCompletionNamedToolChoice": "aihubmix:ChatCompletionNamedToolChoice",
+    "ChatCompletionNamedToolChoiceCustom": "aihubmix:ChatCompletionNamedToolChoiceCustom",
+    "ChatCompletionRequestAssistantMessage": "aihubmix:ChatCompletionRequestAssistantMessage",
+    "content": {
+      "@id": "aihubmix:content"
+    },
+    "refusal": {
+      "@id": "aihubmix:refusal"
+    },
+    "role": {
+      "@id": "aihubmix:role",
+      "@type": "xsd:string"
+    },
+    "audio": {
+      "@id": "aihubmix:audio"
+    },
+    "tool_calls": {
+      "@id": "aihubmix:tool_calls",
+      "@type": "@id"
+    },
+    "function_call": {
+      "@id": "aihubmix:function_call"
+    },
+    "reasoning_content": {
+      "@id": "aihubmix:reasoning_content",
+      "@type": "xsd:string"
+    },
+    "reasoning_details": {
+      "@id": "aihubmix:reasoning_details",
+      "@container": "@list"
+    },
+    "ChatCompletionRequestDeveloperMessage": "aihubmix:ChatCompletionRequestDeveloperMessage",
+    "ChatCompletionRequestFunctionMessage": "aihubmix:ChatCompletionRequestFunctionMessage",
+    "ChatCompletionRequestMessageContentPartAudio": "aihubmix:ChatCompletionRequestMessageContentPartAudio",
+    "input_audio": {
+      "@id": "aihubmix:input_audio"
+    },
+    "cache_control": {
+      "@id": "aihubmix:cache_control"
+    },
+    "ChatCompletionRequestMessageContentPartFile": "aihubmix:ChatCompletionRequestMessageContentPartFile",
+    "file": {
+      "@id": "aihubmix:file"
+    },
+    "ChatCompletionRequestMessageContentPartImage": "aihubmix:ChatCompletionRequestMessageContentPartImage",
+    "ChatCompletionRequestMessageContentPartRefusal": "aihubmix:ChatCompletionRequestMessageContentPartRefusal",
+    "ChatCompletionRequestMessageContentPartText": "aihubmix:ChatCompletionRequestMessageContentPartText",
+    "text": {
+      "@id": "aihubmix:text",
+      "@type": "xsd:string"
+    },
+    "ChatCompletionRequestSystemMessage": "aihubmix:ChatCompletionRequestSystemMessage",
+    "ChatCompletionRequestToolMessage": "aihubmix:ChatCompletionRequestToolMessage",
+    "tool_call_id": {
+      "@id": "aihubmix:tool_call_id",
+      "@type": "xsd:string"
+    },
+    "ChatCompletionRequestUserMessage": "aihubmix:ChatCompletionRequestUserMessage",
+    "ChatCompletionResponseMessage": "aihubmix:ChatCompletionResponseMessage",
+    "annotations": {
+      "@id": "aihubmix:annotations",
+      "@container": "@list"
+    },
+    "ChatCompletionStreamResponseDelta": "aihubmix:ChatCompletionStreamResponseDelta",
+    "ChatCompletionTokenLogprob": "aihubmix:ChatCompletionTokenLogprob",
+    "token": {
+      "@id": "aihubmix:token",
+      "@type": "xsd:string"
+    },
+    "logprob": {
+      "@id": "aihubmix:logprob",
+      "@type": "xsd:decimal"
+    },
+    "bytes": {
+      "@id": "aihubmix:bytes"
+    },
+    "top_logprobs": {
+      "@id": "aihubmix:top_logprobs",
+      "@container": "@list"
+    },
+    "ChatCompletionTool": "aihubmix:ChatCompletionTool",
+    "CodeInterpreterTool": "aihubmix:CodeInterpreterTool",
+    "container": {
+      "@id": "aihubmix:container"
+    },
+    "CodeInterpreterToolCall": "aihubmix:CodeInterpreterToolCall",
+    "container_id": {
+      "@id": "aihubmix:container_id",
+      "@type": "xsd:string"
+    },
+    "outputs": {
+      "@id": "aihubmix:outputs"
+    },
+    "ComparisonFilter": "aihubmix:ComparisonFilter",
+    "key": {
+      "@id": "aihubmix:key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "aihubmix:value"
+    },
+    "CompletionUsage": "aihubmix:CompletionUsage",
+    "completion_tokens": {
+      "@id": "aihubmix:completion_tokens",
+      "@type": "xsd:integer"
+    },
+    "prompt_tokens": {
+      "@id": "aihubmix:prompt_tokens",
+      "@type": "xsd:integer"
+    },
+    "total_tokens": {
+      "@id": "aihubmix:total_tokens",
+      "@type": "xsd:integer"
+    },
+    "completion_tokens_details": {
+      "@id": "aihubmix:completion_tokens_details"
+    },
+    "prompt_tokens_details": {
+      "@id": "aihubmix:prompt_tokens_details"
+    },
+    "CompoundFilter": "aihubmix:CompoundFilter",
+    "filters": {
+      "@id": "aihubmix:filters",
+      "@container": "@list"
+    },
+    "ComputerScreenshotImage": "aihubmix:ComputerScreenshotImage",
+    "file_id": {
+      "@id": "aihubmix:file_id",
+      "@type": "xsd:string"
+    },
+    "ComputerToolCall": "aihubmix:ComputerToolCall",
+    "call_id": {
+      "@id": "aihubmix:call_id",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "aihubmix:action",
+      "@type": "@id"
+    },
+    "actions": {
+      "@id": "aihubmix:actions",
+      "@type": "@id"
+    },
+    "pending_safety_checks": {
+      "@id": "aihubmix:pending_safety_checks",
+      "@container": "@list"
+    },
+    "ComputerToolCallOutput": "aihubmix:ComputerToolCallOutput",
+    "acknowledged_safety_checks": {
+      "@id": "aihubmix:acknowledged_safety_checks",
+      "@container": "@list"
+    },
+    "CreateChatCompletionRequest": "aihubmix:CreateChatCompletionRequest",
+    "top_k": {
+      "@id": "aihubmix:top_k",
+      "@type": "xsd:integer"
+    },
+    "CreateChatCompletionResponse": "aihubmix:CreateChatCompletionResponse",
+    "choices": {
+      "@id": "aihubmix:choices",
+      "@container": "@list"
+    },
+    "created": {
+      "@id": "aihubmix:created",
+      "@type": "xsd:integer"
+    },
+    "service_tier": {
+      "@id": "aihubmix:service_tier",
+      "@type": "@id"
+    },
+    "system_fingerprint": {
+      "@id": "aihubmix:system_fingerprint",
+      "@type": "xsd:string"
+    },
+    "usage": {
+      "@id": "aihubmix:usage",
+      "@type": "@id"
+    },
+    "CreateChatCompletionStreamResponse": "aihubmix:CreateChatCompletionStreamResponse",
+    "CreateCompletionRequest": "aihubmix:CreateCompletionRequest",
+    "best_of": {
+      "@id": "aihubmix:best_of",
+      "@type": "xsd:integer"
+    },
+    "echo": {
+      "@id": "aihubmix:echo",
+      "@type": "xsd:boolean"
+    },
+    "frequency_penalty": {
+      "@id": "aihubmix:frequency_penalty",
+      "@type": "xsd:decimal"
+    },
+    "logit_bias": {
+      "@id": "aihubmix:logit_bias"
+    },
+    "logprobs": {
+      "@id": "aihubmix:logprobs",
+      "@type": "xsd:integer"
+    },
+    "max_tokens": {
+      "@id": "aihubmix:max_tokens",
+      "@type": "xsd:integer"
+    },
+    "presence_penalty": {
+      "@id": "aihubmix:presence_penalty",
+      "@type": "xsd:decimal"
+    },
+    "stop": {
+      "@id": "aihubmix:stop",
+      "@type": "@id"
+    },
+    "stream": {
+      "@id": "aihubmix:stream",
+      "@type": "xsd:boolean"
+    },
+    "stream_options": {
+      "@id": "aihubmix:stream_options",
+      "@type": "@id"
+    },
+    "suffix": {
+      "@id": "aihubmix:suffix",
+      "@type": "xsd:string"
+    },
+    "temperature": {
+      "@id": "aihubmix:temperature",
+      "@type": "xsd:decimal"
+    },
+    "top_p": {
+      "@id": "aihubmix:top_p",
+      "@type": "xsd:decimal"
+    },
+    "user": {
+      "@id": "aihubmix:user",
+      "@type": "xsd:string"
+    },
+    "CreateCompletionResponse": "aihubmix:CreateCompletionResponse",
+    "CreateEmbeddingRequest": "aihubmix:CreateEmbeddingRequest",
+    "input": {
+      "@id": "aihubmix:input"
+    },
+    "encoding_format": {
+      "@id": "aihubmix:encoding_format",
+      "@type": "xsd:string"
+    },
+    "dimensions": {
+      "@id": "aihubmix:dimensions",
+      "@type": "xsd:integer"
+    },
+    "CreateEmbeddingResponse": "aihubmix:CreateEmbeddingResponse",
+    "CreateImageRequest": "aihubmix:CreateImageRequest",
+    "quality": {
+      "@id": "aihubmix:quality",
+      "@type": "xsd:string"
+    },
+    "output_compression": {
+      "@id": "aihubmix:output_compression",
+      "@type": "xsd:integer"
+    },
+    "partial_images": {
+      "@id": "aihubmix:partial_images",
+      "@type": "@id"
+    },
+    "moderation": {
+      "@id": "aihubmix:moderation",
+      "@type": "xsd:string"
+    },
+    "background": {
+      "@id": "aihubmix:background",
+      "@type": "xsd:string"
+    },
+    "style": {
+      "@id": "aihubmix:style",
+      "@type": "xsd:string"
+    },
+    "CreateModerationRequest": "aihubmix:CreateModerationRequest",
+    "CreateModerationResponse": "aihubmix:CreateModerationResponse",
+    "results": {
+      "@id": "aihubmix:results",
+      "@container": "@list"
+    },
+    "CreateResponse": "aihubmix:CreateResponse",
+    "CreateSpeechRequest": "aihubmix:CreateSpeechRequest",
+    "instructions": {
+      "@id": "aihubmix:instructions",
+      "@type": "xsd:string"
+    },
+    "voice": {
+      "@id": "aihubmix:voice",
+      "@type": "@id"
+    },
+    "speed": {
+      "@id": "aihubmix:speed",
+      "@type": "xsd:decimal"
+    },
+    "stream_format": {
+      "@id": "aihubmix:stream_format",
+      "@type": "xsd:string"
+    },
+    "CreateTranscriptionRequest": "aihubmix:CreateTranscriptionRequest",
+    "language": {
+      "@id": "aihubmix:language",
+      "@type": "xsd:string"
+    },
+    "include": {
+      "@id": "aihubmix:include",
+      "@container": "@list"
+    },
+    "timestamp_granularities": {
+      "@id": "aihubmix:timestamp_granularities",
+      "@container": "@list"
+    },
+    "chunking_strategy": {
+      "@id": "aihubmix:chunking_strategy"
+    },
+    "known_speaker_names": {
+      "@id": "aihubmix:known_speaker_names",
+      "@container": "@list"
+    },
+    "known_speaker_references": {
+      "@id": "aihubmix:known_speaker_references",
+      "@container": "@list"
+    },
+    "CreateTranscriptionResponseDiarizedJson": "aihubmix:CreateTranscriptionResponseDiarizedJson",
+    "task": {
+      "@id": "aihubmix:task",
+      "@type": "xsd:string"
+    },
+    "segments": {
+      "@id": "aihubmix:segments",
+      "@container": "@list"
+    },
+    "CreateTranscriptionResponseJson": "aihubmix:CreateTranscriptionResponseJson",
+    "CreateTranscriptionResponseVerboseJson": "aihubmix:CreateTranscriptionResponseVerboseJson",
+    "words": {
+      "@id": "aihubmix:words",
+      "@container": "@list"
+    },
+    "CreateTranslationRequest": "aihubmix:CreateTranslationRequest",
+    "CreateTranslationResponseJson": "aihubmix:CreateTranslationResponseJson",
+    "CreateTranslationResponseVerboseJson": "aihubmix:CreateTranslationResponseVerboseJson",
+    "CustomToolCall": "aihubmix:CustomToolCall",
+    "namespace": {
+      "@id": "aihubmix:namespace",
+      "@type": "xsd:string"
+    },
+    "CustomToolCallOutput": "aihubmix:CustomToolCallOutput",
+    "CustomToolChatCompletions": "aihubmix:CustomToolChatCompletions",
+    "EasyInputMessage": "aihubmix:EasyInputMessage",
+    "phase": {
+      "@id": "aihubmix:phase"
+    },
+    "Embedding": "aihubmix:Embedding",
+    "embedding": {
+      "@id": "aihubmix:embedding",
+      "@container": "@list"
+    },
+    "FilePath": "aihubmix:FilePath",
+    "FileSearchToolCall": "aihubmix:FileSearchToolCall",
+    "queries": {
+      "@id": "aihubmix:queries",
+      "@container": "@list"
+    },
+    "FunctionObject": "aihubmix:FunctionObject",
+    "strict": {
+      "@id": "aihubmix:strict"
+    },
+    "FunctionToolCall": "aihubmix:FunctionToolCall",
+    "arguments": {
+      "@id": "aihubmix:arguments",
+      "@type": "xsd:string"
+    },
+    "FunctionToolCallOutput": "aihubmix:FunctionToolCallOutput",
+    "Image": "aihubmix:Image",
+    "revised_prompt": {
+      "@id": "aihubmix:revised_prompt",
+      "@type": "xsd:string"
+    },
+    "ImageGenCompletedEvent": "aihubmix:ImageGenCompletedEvent",
+    "ImageGenPartialImageEvent": "aihubmix:ImageGenPartialImageEvent",
+    "partial_image_index": {
+      "@id": "aihubmix:partial_image_index",
+      "@type": "xsd:integer"
+    },
+    "ImageGenTool": "aihubmix:ImageGenTool",
+    "input_fidelity": {
+      "@id": "aihubmix:input_fidelity"
+    },
+    "input_image_mask": {
+      "@id": "aihubmix:input_image_mask"
+    },
+    "ImageGenToolCall": "aihubmix:ImageGenToolCall",
+    "result": {
+      "@id": "aihubmix:result"
+    },
+    "ImagesResponse": "aihubmix:ImagesResponse",
+    "ImagesUsage": "aihubmix:ImagesUsage",
+    "input_tokens": {
+      "@id": "aihubmix:input_tokens",
+      "@type": "xsd:integer"
+    },
+    "output_tokens": {
+      "@id": "aihubmix:output_tokens",
+      "@type": "xsd:integer"
+    },
+    "input_tokens_details": {
+      "@id": "aihubmix:input_tokens_details"
+    },
+    "InputMessage": "aihubmix:InputMessage",
+    "LocalShellToolCall": "aihubmix:LocalShellToolCall",
+    "LocalShellToolCallOutput": "aihubmix:LocalShellToolCallOutput",
+    "MCPApprovalRequest": "aihubmix:MCPApprovalRequest",
+    "server_label": {
+      "@id": "aihubmix:server_label",
+      "@type": "xsd:string"
+    },
+    "MCPApprovalResponse": "aihubmix:MCPApprovalResponse",
+    "approval_request_id": {
+      "@id": "aihubmix:approval_request_id",
+      "@type": "xsd:string"
+    },
+    "approve": {
+      "@id": "aihubmix:approve",
+      "@type": "xsd:boolean"
+    },
+    "reason": {
+      "@id": "aihubmix:reason"
+    },
+    "MCPApprovalResponseResource": "aihubmix:MCPApprovalResponseResource",
+    "MCPListTools": "aihubmix:MCPListTools",
+    "MCPListToolsTool": "aihubmix:MCPListToolsTool",
+    "input_schema": {
+      "@id": "aihubmix:input_schema"
+    },
+    "MCPTool": "aihubmix:MCPTool",
+    "server_url": {
+      "@id": "aihubmix:server_url",
+      "@type": "@id"
+    },
+    "connector_id": {
+      "@id": "aihubmix:connector_id",
+      "@type": "xsd:string"
+    },
+    "authorization": {
+      "@id": "aihubmix:authorization",
+      "@type": "xsd:string"
+    },
+    "server_description": {
+      "@id": "aihubmix:server_description",
+      "@type": "xsd:string"
+    },
+    "headers": {
+      "@id": "aihubmix:headers"
+    },
+    "require_approval": {
+      "@id": "aihubmix:require_approval"
+    },
+    "defer_loading": {
+      "@id": "aihubmix:defer_loading",
+      "@type": "xsd:boolean"
+    },
+    "MCPToolCall": "aihubmix:MCPToolCall",
+    "MCPToolFilter": "aihubmix:MCPToolFilter",
+    "tool_names": {
+      "@id": "aihubmix:tool_names",
+      "@container": "@list"
+    },
+    "read_only": {
+      "@id": "aihubmix:read_only",
+      "@type": "xsd:boolean"
+    },
+    "MessagePhase": "aihubmix:MessagePhase",
+    "ModelResponseProperties": "aihubmix:ModelResponseProperties",
+    "metadata": {
+      "@id": "aihubmix:metadata",
+      "@type": "@id"
+    },
+    "safety_identifier": {
+      "@id": "aihubmix:safety_identifier",
+      "@type": "xsd:string"
+    },
+    "prompt_cache_key": {
+      "@id": "aihubmix:prompt_cache_key",
+      "@type": "xsd:string"
+    },
+    "prompt_cache_retention": {
+      "@id": "aihubmix:prompt_cache_retention"
+    },
+    "OutputMessage": "aihubmix:OutputMessage",
+    "PredictionContent": "aihubmix:PredictionContent",
+    "Reasoning": "aihubmix:Reasoning",
+    "effort": {
+      "@id": "aihubmix:effort",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "aihubmix:summary"
+    },
+    "generate_summary": {
+      "@id": "aihubmix:generate_summary"
+    },
+    "ReasoningItem": "aihubmix:ReasoningItem",
+    "encrypted_content": {
+      "@id": "aihubmix:encrypted_content"
+    },
+    "ResponseAudioDeltaEvent": "aihubmix:ResponseAudioDeltaEvent",
+    "sequence_number": {
+      "@id": "aihubmix:sequence_number",
+      "@type": "xsd:integer"
+    },
+    "delta": {
+      "@id": "aihubmix:delta",
+      "@type": "xsd:string"
+    },
+    "ResponseAudioDoneEvent": "aihubmix:ResponseAudioDoneEvent",
+    "ResponseAudioTranscriptDeltaEvent": "aihubmix:ResponseAudioTranscriptDeltaEvent",
+    "ResponseAudioTranscriptDoneEvent": "aihubmix:ResponseAudioTranscriptDoneEvent",
+    "ResponseCodeInterpreterCallCodeDeltaEvent": "aihubmix:ResponseCodeInterpreterCallCodeDeltaEvent",
+    "output_index": {
+      "@id": "aihubmix:output_index",
+      "@type": "xsd:integer"
+    },
+    "item_id": {
+      "@id": "aihubmix:item_id",
+      "@type": "xsd:string"
+    },
+    "ResponseCodeInterpreterCallCodeDoneEvent": "aihubmix:ResponseCodeInterpreterCallCodeDoneEvent",
+    "ResponseCodeInterpreterCallCompletedEvent": "aihubmix:ResponseCodeInterpreterCallCompletedEvent",
+    "ResponseCodeInterpreterCallInProgressEvent": "aihubmix:ResponseCodeInterpreterCallInProgressEvent",
+    "ResponseCodeInterpreterCallInterpretingEvent": "aihubmix:ResponseCodeInterpreterCallInterpretingEvent",
+    "ResponseCompletedEvent": "aihubmix:ResponseCompletedEvent",
+    "response": {
+      "@id": "aihubmix:response",
+      "@type": "@id"
+    },
+    "ResponseContentPartAddedEvent": "aihubmix:ResponseContentPartAddedEvent",
+    "content_index": {
+      "@id": "aihubmix:content_index",
+      "@type": "xsd:integer"
+    },
+    "part": {
+      "@id": "aihubmix:part",
+      "@type": "@id"
+    },
+    "ResponseContentPartDoneEvent": "aihubmix:ResponseContentPartDoneEvent",
+    "ResponseCreatedEvent": "aihubmix:ResponseCreatedEvent",
+    "ResponseCustomToolCallInputDeltaEvent": "aihubmix:ResponseCustomToolCallInputDeltaEvent",
+    "ResponseCustomToolCallInputDoneEvent": "aihubmix:ResponseCustomToolCallInputDoneEvent",
+    "ResponseErrorCode": "aihubmix:ResponseErrorCode",
+    "ResponseErrorEvent": "aihubmix:ResponseErrorEvent",
+    "param": {
+      "@id": "aihubmix:param"
+    },
+    "ResponseFailedEvent": "aihubmix:ResponseFailedEvent",
+    "ResponseFileSearchCallCompletedEvent": "aihubmix:ResponseFileSearchCallCompletedEvent"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "AIHubMix API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects AIHubMix's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-13) from openapi/aihubmix-openapi.yml.",
+  "dcterms:created": "2026-10-13",
+  "dcterms:source": [
+    "openapi/aihubmix-openapi.yml"
+  ]
+}

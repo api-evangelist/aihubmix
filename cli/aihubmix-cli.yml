@@ -1,0 +1,38 @@
+name: AIHubMix CLI
+generated: '2026-10-13'
+method: searched
+source: https://docs.aihubmix.com/en/api/aihubmix-cli
+repository: https://github.com/AIhubmix/platfrom-cli
+binary: aihubmix
+version: v0.4.0
+published: '2026-07-27'
+install:
+- platform: macOS/Linux
+  command: curl -fsSL https://raw.githubusercontent.com/AIhubmix/platfrom-cli/main/install.sh
+    | sh
+- platform: Windows PowerShell
+  command: irm https://raw.githubusercontent.com/AIhubmix/platfrom-cli/main/install.ps1
+    | iex
+commands:
+- command: aihubmix login
+  description: Log in (paste Manage Key)
+- command: aihubmix logout
+  description: Log out, clear local credentials
+- command: aihubmix whoami
+  description: View current login identity and balance
+- command: aihubmix me
+  description: View full account information and balance
+- command: aihubmix models list
+  description: View currently available models
+- command: aihubmix keys list [--num N]
+  description: List API Keys
+- command: aihubmix keys search <keyword>
+  description: Search Keys by keyword
+- command: aihubmix keys get <id>
+  description: View details for a specific Key
+- command: aihubmix keys create [flags]
+  description: Create a new Key
+- command: aihubmix keys update <id> [flags]
+  description: Update a Key
+- command: aihubmix keys delete <id>
+  description: Delete a Key

@@ -1,23 +1,136 @@
 aid: aihubmix
 name: AIHubMix
-description: 'AIHubMix is a company surfaced via the API Evangelist harvest backlog (source: market-gap:ai-model-routing)
-  and added to the network as a stub for full-pipeline profiling.'
+image: https://aihubmix.com/og/default.png
+description: AIHubMix is an AI model routing gateway that exposes hundreds of large
+  language, image, video and audio models from many vendors behind one API key, with
+  OpenAI-compatible, Anthropic-compatible and Google Gemini/Vertex-compatible endpoints
+  plus its own unified image, video and task APIs, pay-as-you-go billing, a remote
+  MCP server, a command-line tool and agent skills.
 url: https://raw.githubusercontent.com/api-evangelist/aihubmix/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:market-gap:ai-model-routing
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-13 (local-v5; was stub/harvest)
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
-apis: []
+- AI
+- Artificial Intelligence
+- LLM
+- Model Routing
+- AI Gateway
+- Generative AI
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/aihubmix-agentic-access.yml
+- type: Spectral
+  url: rules/aihubmix-rules.yml
+- type: JSONLD
+  url: json-ld/aihubmix-context.jsonld
+- type: Vocabulary
+  url: vocabulary/aihubmix-vocabulary.yml
+- type: DataModel
+  url: data-model/aihubmix-data-model.yml
+- type: CLI
+  url: cli/aihubmix-cli.yml
+- type: ErrorCatalog
+  url: errors/aihubmix-problem-types.yml
+- type: Conformance
+  url: conformance/aihubmix-conformance.yml
+- type: LLMsTxt
+  url: llms/aihubmix-llms.txt
+- type: AgentCard
+  url: a2a/aihubmix-a2a.yml
+- type: WellKnown
+  url: well-known/aihubmix-well-known.yml
+- type: Hosts
+  url: hosts/aihubmix-hosts.yml
+- type: Vendors
+  url: vendors/aihubmix-vendors.yml
+- type: SDKs
+  url: packages/aihubmix-packages.yml
+- type: Packages
+  url: packages/aihubmix-packages.yml
+- type: Authentication
+  url: authentication/aihubmix-authentication.yml
+- type: DomainSecurity
+  url: security/aihubmix-domain-security.yml
 - type: Website
   url: https://aihubmix.com
+- type: Documentation
+  url: https://docs.aihubmix.com/en
+- type: APIReference
+  url: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
+- type: DeveloperPortal
+  url: https://aihubmix.com/developers
+- type: GettingStarted
+  url: https://docs.aihubmix.com/en/quick-start
+- type: Blog
+  url: https://aihubmix.com/blog
+- type: ChangeLog
+  url: https://docs.aihubmix.com/en/update/News
+- type: GitHubOrganization
+  url: https://github.com/AIhubmix
+- type: Login
+  url: https://console.aihubmix.com/
+- type: PrivacyPolicy
+  url: https://aihubmix.com/legal/privacy
+- type: TermsOfService
+  url: https://aihubmix.com/legal/terms
+- type: StatusPage
+  url: https://status.aihubmix.com
+- type: Playground
+  url: https://playground.aihubmix.com
+- type: LLMsTxt
+  url: https://docs.aihubmix.com/llms.txt
+- type: MCPServer
+  url: https://aihubmix.com/mcp
+apis:
+- aid: aihubmix:aihubmix-gateway-api
+  name: AIHubMix Gateway API
+  description: OpenAI-, Anthropic- and Gemini-compatible model gateway plus AIHubMix
+    unified image, video, task and model-catalog endpoints, authenticated with a gateway
+    API key.
+  humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
+  baseURL: https://aihubmix.com
+  tags:
+  - AI
+  - LLM
+  - Model Routing
+  properties:
+  - type: OpenAPI
+    url: openapi/aihubmix-openapi.yml
+  - type: OpenAPI
+    name: OpenAPI (provider-hosted)
+    url: https://docs.aihubmix.com/openapi.json
+  - type: OpenAPI
+    name: OpenAPI (provider-hosted, gateway)
+    url: https://aihubmix.com/openapi.json
+  - type: Documentation
+    url: https://docs.aihubmix.com/en
+  - type: JSONSchema
+    url: json-schema/aihubmix-anthropic-create-message-params-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-chat-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-moderation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-image-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-transcription-request-schema.json
+  image: https://aihubmix.com/og/default.png
+x-enrichment:
+  date: '2026-10-13'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v5

@@ -1,0 +1,2158 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/aihubmix-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 400
+  entities_in_spec: 436
+  relationships: 280
+entities:
+- name: AIHubMixEndpointDefinition
+  fields: 6
+- name: AIHubMixFrameImage
+  fields: 2
+- name: AIHubMixImageCreateRequest
+  fields: 16
+- name: AIHubMixMediaReference
+  fields: 2
+- name: AIHubMixMediaTask
+  fields: 9
+- name: AIHubMixMediaTaskList
+  fields: 4
+- name: AIHubMixModelEndpointsResponse
+  fields: 3
+- name: AIHubMixModelListResponse
+  fields: 3
+- name: AIHubMixModelSummary
+  fields: 5
+- name: AIHubMixTaskArtifact
+  fields: 6
+- name: AIHubMixTaskError
+  fields: 3
+- name: AIHubMixUnifiedTask
+  fields: 9
+- name: AIHubMixUnifiedTaskList
+  fields: 4
+- name: AIHubMixVideoCreateRequest
+  fields: 13
+- name: AnthropicBase64ImageSource
+  fields: 3
+- name: AnthropicBase64PDFSource
+  fields: 3
+- name: AnthropicBashTool_20250124
+  fields: 7
+- name: AnthropicCacheControlEphemeral
+  fields: 2
+- name: AnthropicCacheCreation
+  fields: 2
+- name: AnthropicCitationsDelta
+  fields: 2
+- name: AnthropicCodeExecutionTool_20250522
+  fields: 6
+- name: AnthropicCodeExecutionTool_20250825
+  fields: 6
+- name: AnthropicCodeExecutionTool_20260120
+  fields: 6
+  description: Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+- name: AnthropicContainer
+  fields: 2
+  description: Information about the container used in the request (for the code execution tool)
+- name: AnthropicContentBlockDeltaEvent
+  fields: 3
+- name: AnthropicContentBlockSource
+  fields: 2
+- name: AnthropicContentBlockStartEvent
+  fields: 3
+- name: AnthropicContentBlockStopEvent
+  fields: 2
+- name: AnthropicCreateMessageParams
+  fields: 18
+- name: AnthropicDirectCaller
+  fields: 1
+  description: Tool invocation directly from the model.
+- name: AnthropicInputJsonContentBlockDelta
+  fields: 2
+- name: AnthropicInputMessage
+  fields: 2
+- name: AnthropicInputSchema
+  fields: 3
+- name: AnthropicJsonOutputFormat
+  fields: 2
+- name: AnthropicMemoryTool_20250818
+  fields: 7
+- name: AnthropicMessage
+  fields: 10
+- name: AnthropicMessageDelta
+  fields: 4
+- name: AnthropicMessageDeltaEvent
+  fields: 3
+- name: AnthropicMessageDeltaUsage
+  fields: 6
+- name: AnthropicMessageStartEvent
+  fields: 2
+- name: AnthropicMessageStopEvent
+  fields: 1
+- name: AnthropicMetadata
+  fields: 1
+- name: AnthropicOutputConfig
+  fields: 2
+- name: AnthropicOutputTokensDetails
+  fields: 1
+- name: AnthropicPlainTextSource
+  fields: 3
+- name: AnthropicRefusalStopDetails
+  fields: 3
+  description: Structured information about a refusal.
+- name: AnthropicRequestBashCodeExecutionOutputBlock
+  fields: 2
+- name: AnthropicRequestBashCodeExecutionResultBlock
+  fields: 5
+- name: AnthropicRequestBashCodeExecutionToolResultBlock
+  fields: 4
+- name: AnthropicRequestBashCodeExecutionToolResultError
+  fields: 2
+- name: AnthropicRequestCharLocationCitation
+  fields: 6
+- name: AnthropicRequestCitationsConfig
+  fields: 1
+- name: AnthropicRequestCodeExecutionOutputBlock
+  fields: 2
+- name: AnthropicRequestCodeExecutionResultBlock
+  fields: 5
+- name: AnthropicRequestCodeExecutionToolResultBlock
+  fields: 4
+- name: AnthropicRequestCodeExecutionToolResultError
+  fields: 2
+- name: AnthropicRequestContainerUploadBlock
+  fields: 3
+  description: A content block that represents a file to be uploaded to the container
+- name: AnthropicRequestContentBlockLocationCitation
+  fields: 6
+- name: AnthropicRequestDocumentBlock
+  fields: 6
+- name: AnthropicRequestEncryptedCodeExecutionResultBlock
+  fields: 5
+  description: Code execution result with encrypted stdout for PFC + web_search results.
+- name: AnthropicRequestImageBlock
+  fields: 3
+- name: AnthropicRequestMidConvSystemBlock
+  fields: 3
+  description: System instructions that appear mid-conversation.
+- name: AnthropicRequestPageLocationCitation
+  fields: 6
+- name: AnthropicRequestRedactedThinkingBlock
+  fields: 2
+- name: AnthropicRequestSearchResultBlock
+  fields: 6
+- name: AnthropicRequestSearchResultLocationCitation
+  fields: 7
+- name: AnthropicRequestServerToolUseBlock
+  fields: 6
+- name: AnthropicRequestTextBlock
+  fields: 4
+- name: AnthropicRequestTextEditorCodeExecutionCreateResultBlock
+  fields: 2
+- name: AnthropicRequestTextEditorCodeExecutionStrReplaceResultBlock
+  fields: 6
+- name: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  fields: 4
+- name: AnthropicRequestTextEditorCodeExecutionToolResultError
+  fields: 3
+- name: AnthropicRequestTextEditorCodeExecutionViewResultBlock
+  fields: 6
+- name: AnthropicRequestThinkingBlock
+  fields: 3
+- name: AnthropicRequestToolReferenceBlock
+  fields: 3
+  description: Tool reference block that can be included in tool_result content.
+- name: AnthropicRequestToolResultBlock
+  fields: 5
+- name: AnthropicRequestToolSearchToolResultBlock
+  fields: 4
+- name: AnthropicRequestToolSearchToolResultError
+  fields: 2
+- name: AnthropicRequestToolSearchToolSearchResultBlock
+  fields: 2
+- name: AnthropicRequestToolUseBlock
+  fields: 6
+- name: AnthropicRequestWebFetchResultBlock
+  fields: 4
+- name: AnthropicRequestWebFetchToolResultBlock
+  fields: 5
+- name: AnthropicRequestWebFetchToolResultError
+  fields: 2
+- name: AnthropicRequestWebSearchResultBlock
+  fields: 5
+- name: AnthropicRequestWebSearchResultLocationCitation
+  fields: 5
+- name: AnthropicRequestWebSearchToolResultBlock
+  fields: 5
+- name: AnthropicRequestWebSearchToolResultError
+  fields: 2
+- name: AnthropicResponseBashCodeExecutionOutputBlock
+  fields: 2
+- name: AnthropicResponseBashCodeExecutionResultBlock
+  fields: 5
+- name: AnthropicResponseBashCodeExecutionToolResultBlock
+  fields: 3
+- name: AnthropicResponseBashCodeExecutionToolResultError
+  fields: 2
+- name: AnthropicResponseCharLocationCitation
+  fields: 7
+- name: AnthropicResponseCitationsConfig
+  fields: 1
+- name: AnthropicResponseCodeExecutionOutputBlock
+  fields: 2
+- name: AnthropicResponseCodeExecutionResultBlock
+  fields: 5
+- name: AnthropicResponseCodeExecutionToolResultBlock
+  fields: 3
+- name: AnthropicResponseCodeExecutionToolResultError
+  fields: 2
+- name: AnthropicResponseContainerUploadBlock
+  fields: 2
+  description: Response model for a file uploaded to the container.
+- name: AnthropicResponseContentBlockLocationCitation
+  fields: 7
+- name: AnthropicResponseDocumentBlock
+  fields: 4
+- name: AnthropicResponseEncryptedCodeExecutionResultBlock
+  fields: 5
+  description: Code execution result with encrypted stdout for PFC + web_search results.
+- name: AnthropicResponsePageLocationCitation
+  fields: 7
+- name: AnthropicResponseRedactedThinkingBlock
+  fields: 2
+- name: AnthropicResponseSearchResultLocationCitation
+  fields: 7
+- name: AnthropicResponseServerToolUseBlock
+  fields: 5
+- name: AnthropicResponseTextBlock
+  fields: 3
+- name: AnthropicResponseTextEditorCodeExecutionCreateResultBlock
+  fields: 2
+- name: AnthropicResponseTextEditorCodeExecutionStrReplaceResultBlock
+  fields: 6
+- name: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  fields: 3
+- name: AnthropicResponseTextEditorCodeExecutionToolResultError
+  fields: 3
+- name: AnthropicResponseTextEditorCodeExecutionViewResultBlock
+  fields: 6
+- name: AnthropicResponseThinkingBlock
+  fields: 3
+- name: AnthropicResponseToolReferenceBlock
+  fields: 2
+- name: AnthropicResponseToolSearchToolResultBlock
+  fields: 3
+- name: AnthropicResponseToolSearchToolResultError
+  fields: 3
+- name: AnthropicResponseToolSearchToolSearchResultBlock
+  fields: 2
+- name: AnthropicResponseToolUseBlock
+  fields: 5
+- name: AnthropicResponseWebFetchResultBlock
+  fields: 4
+- name: AnthropicResponseWebFetchToolResultBlock
+  fields: 4
+- name: AnthropicResponseWebFetchToolResultError
+  fields: 2
+- name: AnthropicResponseWebSearchResultBlock
+  fields: 5
+- name: AnthropicResponseWebSearchResultLocationCitation
+  fields: 5
+- name: AnthropicResponseWebSearchToolResultBlock
+  fields: 4
+- name: AnthropicResponseWebSearchToolResultError
+  fields: 2
+- name: AnthropicServerToolCaller
+  fields: 2
+  description: Tool invocation generated by a server-side tool.
+- name: AnthropicServerToolCaller_20260120
+  fields: 2
+- name: AnthropicServerToolUsage
+  fields: 2
+- name: AnthropicSignatureContentBlockDelta
+  fields: 2
+- name: AnthropicTextContentBlockDelta
+  fields: 2
+- name: AnthropicTextEditor_20250124
+  fields: 7
+- name: AnthropicTextEditor_20250429
+  fields: 7
+- name: AnthropicTextEditor_20250728
+  fields: 8
+- name: AnthropicThinkingConfigAdaptive
+  fields: 2
+- name: AnthropicThinkingConfigDisabled
+  fields: 1
+- name: AnthropicThinkingConfigEnabled
+  fields: 3
+- name: AnthropicThinkingContentBlockDelta
+  fields: 2
+- name: AnthropicTool
+  fields: 10
+- name: AnthropicToolChoiceAny
+  fields: 2
+  description: The model will use any available tools.
+- name: AnthropicToolChoiceAuto
+  fields: 2
+  description: The model will automatically decide whether to use tools.
+- name: AnthropicToolChoiceNone
+  fields: 1
+  description: The model will not be allowed to use tools.
+- name: AnthropicToolChoiceTool
+  fields: 3
+  description: The model will use the specified tool with `tool_choice.name`.
+- name: AnthropicToolSearchToolBM25_20251119
+  fields: 6
+- name: AnthropicToolSearchToolRegex_20251119
+  fields: 6
+- name: AnthropicURLImageSource
+  fields: 2
+- name: AnthropicURLPDFSource
+  fields: 2
+- name: AnthropicUsage
+  fields: 9
+- name: AnthropicUserLocation
+  fields: 5
+- name: AnthropicWebFetchTool_20250910
+  fields: 11
+- name: AnthropicWebFetchTool_20260209
+  fields: 11
+- name: AnthropicWebFetchTool_20260309
+  fields: 12
+  description: Web fetch tool with use_cache parameter for bypassing cached content.
+- name: AnthropicWebSearchTool_20250305
+  fields: 10
+- name: AnthropicWebSearchTool_20260209
+  fields: 10
+- name: ApplyPatchCreateFileOperation
+  fields: 3
+  description: Instruction describing how to create a file via the apply_patch tool.
+- name: ApplyPatchCreateFileOperationParam
+  fields: 3
+  description: Instruction for creating a new file via the apply_patch tool.
+- name: ApplyPatchDeleteFileOperation
+  fields: 2
+  description: Instruction describing how to delete a file via the apply_patch tool.
+- name: ApplyPatchDeleteFileOperationParam
+  fields: 2
+  description: Instruction for deleting an existing file via the apply_patch tool.
+- name: ApplyPatchToolCall
+  fields: 6
+  description: A tool call that applies file diffs by creating, deleting, or updating files.
+- name: ApplyPatchToolCallItemParam
+  fields: 5
+  description: A tool call representing a request to create, delete, or update files using diff patches.
+- name: ApplyPatchToolCallOutput
+  fields: 6
+  description: The output emitted by an apply patch tool call.
+- name: ApplyPatchToolCallOutputItemParam
+  fields: 5
+  description: The streamed output emitted by an apply patch tool call.
+- name: ApplyPatchToolParam
+  fields: 1
+  description: Allows the assistant to create, delete, or update files using unified diffs.
+- name: ApplyPatchUpdateFileOperation
+  fields: 3
+  description: Instruction describing how to update a file via the apply_patch tool.
+- name: ApplyPatchUpdateFileOperationParam
+  fields: 3
+  description: Instruction for updating an existing file via the apply_patch tool.
+- name: ApproximateLocation
+  fields: 5
+- name: AutoCodeInterpreterToolParam
+  fields: 4
+  description: Configuration for a code interpreter container. Optionally specify the IDs of the files to run the
+    code on.
+- name: ChatCompletionAllowedTools
+  fields: 2
+  description: Constrains the tools available to the model to a pre-defined set.
+- name: ChatCompletionAllowedToolsChoice
+  fields: 2
+  description: Constrains the tools available to the model to a pre-defined set.
+- name: ChatCompletionFunctionCallOption
+  fields: 1
+  description: 'Specifying a particular function via `{"name": "my_function"}` forces the model to call that function.'
+- name: ChatCompletionFunctions
+  fields: 3
+- name: ChatCompletionMessageCustomToolCall
+  fields: 3
+  description: A call to a custom tool created by the model.
+- name: ChatCompletionMessageToolCall
+  fields: 3
+  description: A call to a function tool created by the model.
+- name: ChatCompletionMessageToolCallChunk
+  fields: 4
+- name: ChatCompletionNamedToolChoice
+  fields: 2
+  description: Specifies a tool the model should use. Use to force the model to call a specific function.
+- name: ChatCompletionNamedToolChoiceCustom
+  fields: 2
+  description: Specifies a tool the model should use. Use to force the model to call a specific custom tool.
+- name: ChatCompletionRequestAssistantMessage
+  fields: 9
+  description: Messages sent by the model in response to user messages.
+- name: ChatCompletionRequestDeveloperMessage
+  fields: 3
+  description: Developer-provided instructions that the model should follow, regardless of
+- name: ChatCompletionRequestFunctionMessage
+  fields: 3
+- name: ChatCompletionRequestMessageContentPartAudio
+  fields: 3
+  description: Learn about [audio inputs](https://developers.openai.com/api/docs/guides/audio).
+- name: ChatCompletionRequestMessageContentPartFile
+  fields: 3
+  description: Learn about [file inputs](https://developers.openai.com/api/docs/guides/text) for text generation.
+- name: ChatCompletionRequestMessageContentPartImage
+  fields: 3
+  description: Learn about [image inputs](https://developers.openai.com/api/docs/guides/vision).
+- name: ChatCompletionRequestMessageContentPartRefusal
+  fields: 2
+- name: ChatCompletionRequestMessageContentPartText
+  fields: 3
+  description: Learn about [text inputs](https://developers.openai.com/api/docs/guides/text-generation).
+- name: ChatCompletionRequestSystemMessage
+  fields: 3
+  description: Developer-provided instructions that the model should follow, regardless of
+- name: ChatCompletionRequestToolMessage
+  fields: 3
+- name: ChatCompletionRequestUserMessage
+  fields: 3
+  description: Messages sent by an end user, containing prompts or additional context
+- name: ChatCompletionResponseMessage
+  fields: 9
+  description: A chat completion message generated by the model.
+- name: ChatCompletionStreamResponseDelta
+  fields: 5
+  description: A chat completion delta generated by streamed model responses.
+- name: ChatCompletionTokenLogprob
+  fields: 4
+- name: ChatCompletionTool
+  fields: 3
+  description: A function tool that can be used to generate a response.
+- name: ClickParam
+  fields: 5
+  description: A click action.
+- name: CodeInterpreterOutputImage
+  fields: 2
+  description: The image output from the code interpreter.
+- name: CodeInterpreterOutputLogs
+  fields: 2
+  description: The logs output from the code interpreter.
+- name: CodeInterpreterTool
+  fields: 2
+  description: A tool that runs Python code to help generate a response to a prompt.
+- name: CodeInterpreterToolCall
+  fields: 6
+  description: A tool call to run code.
+- name: CompactionBody
+  fields: 4
+  description: A compaction item generated by the [`v1/responses/compact` API](https://developers.openai.com/api/docs/api-reference/responses/compact).
+- name: CompactionSummaryItemParam
+  fields: 3
+  description: A compaction item generated by the [`v1/responses/compact` API](https://developers.openai.com/api/docs/api-reference/responses/compact).
+- name: CompactionTriggerItemParam
+  fields: 1
+  description: Compacts the current context. Must be the final input item.
+- name: ComparisonFilter
+  fields: 3
+  description: A filter used to compare a specified attribute key to a given value using a defined comparison operation.
+- name: CompletionUsage
+  fields: 5
+  description: Usage statistics for the completion request.
+- name: CompoundFilter
+  fields: 2
+  description: Combine multiple filters using `and` or `or`.
+- name: ComputerCallOutputItemParam
+  fields: 6
+  description: The output of a computer tool call.
+- name: ComputerCallSafetyCheckParam
+  fields: 3
+  description: A pending safety check for the computer call.
+- name: ComputerScreenshotImage
+  fields: 3
+  description: A computer screenshot image used with the computer use tool.
+- name: ComputerTool
+  fields: 1
+  description: A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).
+- name: ComputerToolCall
+  fields: 7
+  description: A tool call to a computer use tool. See the
+- name: ComputerToolCallOutput
+  fields: 6
+  description: The output of a computer tool call.
+- name: ComputerToolCallOutputResource
+  fields: 0
+- name: ComputerUsePreviewTool
+  fields: 4
+  description: A tool that controls a virtual computer. Learn more about the [computer tool](https://platform.openai.com/docs/guides/tools-computer-use).
+- name: ContainerAutoParam
+  fields: 5
+- name: ContainerFileCitationBody
+  fields: 6
+  description: A citation for a container file used to generate a model response.
+- name: ContainerNetworkPolicyAllowlistParam
+  fields: 3
+- name: ContainerNetworkPolicyDisabledParam
+  fields: 1
+- name: ContainerNetworkPolicyDomainSecretParam
+  fields: 3
+- name: ContainerReferenceParam
+  fields: 2
+- name: ContainerReferenceResource
+  fields: 2
+  description: Represents a container created with /v1/containers.
+- name: ContextManagementParam
+  fields: 2
+- name: Conversation-2
+  fields: 1
+  description: The conversation that this response belonged to. Input items and output items from this response
+    were automatically added to this conversation.
+- name: ConversationParam-2
+  fields: 1
+  description: The conversation that this response belongs to.
+- name: CoordParam
+  fields: 2
+  description: 'An x/y coordinate pair, e.g. `{ x: 100, y: 200 }`.'
+- name: CreateChatCompletionRequest
+  fields: 1
+- name: CreateChatCompletionResponse
+  fields: 8
+  description: Represents a chat completion response returned by model, based on the provided input.
+- name: CreateChatCompletionStreamResponse
+  fields: 8
+  description: Represents a streamed chunk of a chat completion response returned
+- name: CreateCompletionRequest
+  fields: 18
+- name: CreateCompletionResponse
+  fields: 7
+  description: 'Represents a completion response from the API. Note: both the streamed and non-streamed response
+    objects share the same shape (unlike the chat endpoint).'
+- name: CreateEmbeddingRequest
+  fields: 5
+- name: CreateEmbeddingResponse
+  fields: 4
+- name: CreateImageRequest
+  fields: 14
+- name: CreateModelResponseProperties
+  fields: 0
+- name: CreateModerationRequest
+  fields: 2
+- name: CreateModerationResponse
+  fields: 3
+  description: Represents if a given text input is potentially harmful.
+- name: CreateResponse
+  fields: 1
+- name: CreateSpeechRequest
+  fields: 7
+- name: CreateTranscriptionRequest
+  fields: 12
+- name: CreateTranscriptionResponseDiarizedJson
+  fields: 5
+  description: Represents a diarized transcription response returned by the model, including the combined transcript
+    and speaker-segment annotations.
+- name: CreateTranscriptionResponseJson
+  fields: 3
+  description: Represents a transcription response returned by model, based on the provided input.
+- name: CreateTranscriptionResponseVerboseJson
+  fields: 6
+  description: Represents a verbose json transcription response returned by model, based on the provided input.
+- name: CreateTranslationRequest
+  fields: 5
+- name: CreateTranslationResponseJson
+  fields: 1
+- name: CreateTranslationResponseVerboseJson
+  fields: 4
+- name: CreateVideoJsonBody
+  fields: 5
+  description: JSON parameters for creating a new video generation job.
+- name: CreateVideoMultipartBody
+  fields: 5
+  description: Multipart parameters for creating a new video generation job.
+- name: CreateVideoRemixBody
+  fields: 1
+  description: Parameters for remixing an existing generated video.
+- name: CustomGrammarFormatParam
+  fields: 3
+  description: A grammar defined by the user.
+- name: CustomTextFormatParam
+  fields: 1
+  description: Unconstrained free-form text.
+- name: CustomToolCall
+  fields: 6
+  description: A call to a custom tool created by the model.
+- name: CustomToolCallOutput
+  fields: 4
+  description: The output of a custom tool call from your code, being sent back to the model.
+- name: CustomToolCallOutputResource
+  fields: 0
+- name: CustomToolChatCompletions
+  fields: 2
+  description: A custom tool that processes input using a specified format.
+- name: CustomToolParam
+  fields: 5
+  description: A custom tool that processes input using a specified format. Learn more about   [custom tools](https://developers.openai.com/api/docs/guides/function-calling#custom-tools)
+- name: DeletedVideoResource
+  fields: 3
+  description: Confirmation payload returned after deleting a video.
+- name: DoubleClickAction
+  fields: 4
+  description: A double click action.
+- name: DragParam
+  fields: 3
+  description: A drag action.
+- name: EasyInputMessage
+  fields: 4
+  description: A message input to the model with a role indicating instruction following
+- name: Embedding
+  fields: 3
+  description: Represents an embedding vector returned by embedding endpoint.
+- name: EmptyModelParam
+  fields: 0
+- name: Error-2
+  fields: 2
+  description: An error that occurred while generating the response.
+- name: FileCitationBody
+  fields: 4
+  description: A citation to a file.
+- name: FilePath
+  fields: 3
+  description: A path to a file.
+- name: FileSearchTool
+  fields: 5
+  description: A tool that searches for relevant content from uploaded files. Learn more about the [file search
+    tool](https://platform.openai.com/docs/guides/tools-file-search).
+- name: FileSearchToolCall
+  fields: 5
+  description: The results of a file search tool call. See the
+- name: FunctionCallOutputItemParam
+  fields: 5
+  description: The output of a function tool call.
+- name: FunctionObject
+  fields: 4
+- name: FunctionParameters
+  fields: 0
+  description: The parameters the functions accepts, described as a JSON Schema object. See the [guide](https://developers.openai.com/api/docs/guides/function-calling)
+    for examples, and the [JSON Schema reference](h
+- name: FunctionShellAction
+  fields: 3
+  description: Execute a shell command.
+- name: FunctionShellActionParam
+  fields: 3
+  description: Commands and limits describing how to run the shell tool call.
+- name: FunctionShellCall
+  fields: 7
+  description: A tool call that executes one or more shell commands in a managed environment.
+- name: FunctionShellCallItemParam
+  fields: 6
+  description: A tool representing a request to execute one or more shell commands.
+- name: FunctionShellCallOutput
+  fields: 7
+  description: The output of a shell tool call that was emitted.
+- name: FunctionShellCallOutputContent
+  fields: 4
+  description: The content of a shell tool call output that was emitted.
+- name: FunctionShellCallOutputContentParam
+  fields: 3
+  description: Captured stdout and stderr for a portion of a shell tool call output.
+- name: FunctionShellCallOutputExitOutcome
+  fields: 2
+  description: Indicates that the shell commands finished and returned an exit code.
+- name: FunctionShellCallOutputExitOutcomeParam
+  fields: 2
+  description: Indicates that the shell commands finished and returned an exit code.
+- name: FunctionShellCallOutputItemParam
+  fields: 6
+  description: The streamed output items emitted by a shell tool call.
+- name: FunctionShellCallOutputTimeoutOutcome
+  fields: 1
+  description: Indicates that the shell call exceeded its configured time limit.
+- name: FunctionShellCallOutputTimeoutOutcomeParam
+  fields: 1
+  description: Indicates that the shell call exceeded its configured time limit.
+- name: FunctionShellToolParam
+  fields: 2
+  description: A tool that allows the model to execute shell commands.
+- name: FunctionTool
+  fields: 7
+  description: Defines a function in your own code the model can choose to call. Learn more about [function calling](https://platform.openai.com/docs/guides/function-calling).
+- name: FunctionToolCall
+  fields: 7
+  description: 'A tool call to run a function. See the '
+- name: FunctionToolCallOutput
+  fields: 5
+  description: The output of a function tool call.
+- name: FunctionToolCallOutputResource
+  fields: 0
+- name: FunctionToolParam
+  fields: 6
+- name: GatewayError
+  fields: 1
+  description: OpenAI-compatible error envelope. Top-level `error` object carrying
+- name: GeminiGenerateContentRequest
+  fields: 5
+  description: Native Gemini `generateContent` request body. Field definitions here
+- name: GeminiGenerateContentResponse
+  fields: 0
+  description: Native Gemini response body. Refer to Google's official documentation
+- name: HybridSearchOptions
+  fields: 2
+- name: Image
+  fields: 3
+  description: Represents the content or the URL of an image generated by the OpenAI API.
+- name: ImageGenCompletedEvent
+  fields: 8
+  description: Emitted when image generation has completed and the final image is available.
+- name: ImageGenInputUsageDetails
+  fields: 2
+  description: The input tokens detailed information for the image generation.
+- name: ImageGenOutputTokensDetails
+  fields: 2
+  description: The output token details for the image generation.
+- name: ImageGenPartialImageEvent
+  fields: 8
+  description: Emitted when a partial image is available during image generation streaming.
+- name: ImageGenTool
+  fields: 12
+  description: A tool that generates images using the GPT image models.
+- name: ImageGenToolCall
+  fields: 4
+  description: An image generation request made by the model.
+- name: ImageGenUsage
+  fields: 5
+  description: For `gpt-image-1` only, the token usage information for the image generation.
+- name: ImageRefParam-2
+  fields: 2
+- name: ImagesResponse
+  fields: 7
+  description: The response from the image generation endpoint.
+- name: ImagesUsage
+  fields: 4
+  description: For the GPT image models only, the token usage information for the image generation.
+- name: InlineSkillParam
+  fields: 4
+- name: InlineSkillSourceParam
+  fields: 3
+  description: Inline skill payload
+- name: InputFileContent
+  fields: 7
+  description: A file input to the model.
+- name: InputFileContentParam
+  fields: 6
+  description: A file input to the model.
+- name: InputImageContent
+  fields: 5
+  description: An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/vision).
+- name: InputImageContentParamAutoParam
+  fields: 4
+  description: An image input to the model. Learn about [image inputs](https://developers.openai.com/api/docs/guides/vision)
+- name: InputMessage
+  fields: 4
+  description: A message input to the model with a role indicating instruction following
+- name: InputTextContent
+  fields: 3
+  description: A text input to the model.
+- name: InputTextContentParam
+  fields: 2
+  description: A text input to the model.
+- name: ItemReferenceParam
+  fields: 2
+  description: An internal identifier for an item to reference.
+- name: KeyPressAction
+  fields: 2
+  description: A collection of keypresses the model would like to perform.
+- name: LocalEnvironmentParam
+  fields: 2
+- name: LocalEnvironmentResource
+  fields: 1
+  description: Represents the use of a local environment to perform shell actions.
+- name: LocalShellExecAction
+  fields: 6
+  description: Execute a shell command on the server.
+- name: LocalShellToolCall
+  fields: 5
+  description: A tool call to run a command on the local shell.
+- name: LocalShellToolCallOutput
+  fields: 4
+  description: The output of a local shell tool call.
+- name: LocalShellToolParam
+  fields: 1
+  description: A tool that allows the model to execute shell commands in a local environment.
+- name: LocalSkillParam
+  fields: 3
+- name: LogProb
+  fields: 4
+  description: The log probability of a token.
+- name: MCPApprovalRequest
+  fields: 5
+  description: A request for human approval of a tool invocation.
+- name: MCPApprovalResponse
+  fields: 5
+  description: A response to an MCP approval request.
+- name: MCPApprovalResponseResource
+  fields: 5
+  description: A response to an MCP approval request.
+- name: MCPListTools
+  fields: 5
+  description: A list of tools available on an MCP server.
+- name: MCPListToolsTool
+  fields: 4
+  description: A tool available on an MCP server.
+- name: MCPTool
+  fields: 10
+  description: Give the model access to additional tools via remote Model Context Protocol
+- name: MCPToolCall
+  fields: 9
+  description: An invocation of a tool on an MCP server.
+- name: MCPToolFilter
+  fields: 2
+  description: A filter object to specify which tools are allowed.
+- name: ModelResponseProperties
+  fields: 9
+- name: MoveParam
+  fields: 4
+  description: A mouse move action.
+- name: NamespaceToolParam
+  fields: 4
+  description: Groups function/custom tools under a shared namespace.
+- name: OutputMessage
+  fields: 6
+  description: An output message from the model.
+- name: OutputTextContent
+  fields: 4
+  description: A text output from the model.
+- name: PredictionContent
+  fields: 2
+  description: Static predicted output content, such as the content of a text file that is
+- name: RankingOptions
+  fields: 3
+- name: Reasoning
+  fields: 3
+  description: '**gpt-5 and o-series models only**'
+- name: ReasoningItem
+  fields: 6
+  description: A description of the chain of thought used by a reasoning model while generating
+- name: ReasoningTextContent
+  fields: 2
+  description: Reasoning text from the model.
+- name: RefusalContent
+  fields: 2
+  description: A refusal from the model.
+- name: Response
+  fields: 0
+- name: ResponseAudioDeltaEvent
+  fields: 3
+  description: Emitted when there is a partial audio response.
+- name: ResponseAudioDoneEvent
+  fields: 2
+  description: Emitted when the audio response is complete.
+- name: ResponseAudioTranscriptDeltaEvent
+  fields: 3
+  description: Emitted when there is a partial transcript of audio.
+- name: ResponseAudioTranscriptDoneEvent
+  fields: 2
+  description: Emitted when the full audio transcript is completed.
+- name: ResponseCodeInterpreterCallCodeDeltaEvent
+  fields: 5
+  description: Emitted when a partial code snippet is streamed by the code interpreter.
+- name: ResponseCodeInterpreterCallCodeDoneEvent
+  fields: 5
+  description: Emitted when the code snippet is finalized by the code interpreter.
+- name: ResponseCodeInterpreterCallCompletedEvent
+  fields: 4
+  description: Emitted when the code interpreter call is completed.
+- name: ResponseCodeInterpreterCallInProgressEvent
+  fields: 4
+  description: Emitted when a code interpreter call is in progress.
+- name: ResponseCodeInterpreterCallInterpretingEvent
+  fields: 4
+  description: Emitted when the code interpreter is actively interpreting the code snippet.
+- name: ResponseCompletedEvent
+  fields: 3
+  description: Emitted when the model response is complete.
+- name: ResponseContentPartAddedEvent
+  fields: 6
+  description: Emitted when a new content part is added.
+- name: ResponseContentPartDoneEvent
+  fields: 6
+  description: Emitted when a content part is done.
+- name: ResponseCreatedEvent
+  fields: 3
+  description: An event that is emitted when a response is created.
+- name: ResponseCustomToolCallInputDeltaEvent
+  fields: 5
+  description: Event representing a delta (partial update) to the input of a custom tool call.
+- name: ResponseCustomToolCallInputDoneEvent
+  fields: 5
+  description: Event indicating that input for a custom tool call is complete.
+- name: ResponseErrorEvent
+  fields: 5
+  description: Emitted when an error occurs.
+- name: ResponseFailedEvent
+  fields: 3
+  description: An event that is emitted when a response fails.
+- name: ResponseFileSearchCallCompletedEvent
+  fields: 4
+  description: Emitted when a file search call is completed (results found).
+- name: ResponseFileSearchCallInProgressEvent
+  fields: 4
+  description: Emitted when a file search call is initiated.
+- name: ResponseFileSearchCallSearchingEvent
+  fields: 4
+  description: Emitted when a file search is currently searching.
+- name: ResponseFormatJsonObject
+  fields: 1
+  description: JSON object response format. An older method of generating JSON responses.
+- name: ResponseFormatJsonSchema
+  fields: 2
+  description: JSON Schema response format. Used to generate structured JSON responses.
+- name: ResponseFormatJsonSchemaSchema
+  fields: 0
+  description: The schema for the response format, described as a JSON Schema object.
+- name: ResponseFormatText
+  fields: 1
+  description: Default response format. Used to generate text responses.
+- name: ResponseFunctionCallArgumentsDeltaEvent
+  fields: 5
+  description: Emitted when there is a partial function-call arguments delta.
+- name: ResponseFunctionCallArgumentsDoneEvent
+  fields: 6
+  description: Emitted when function-call arguments are finalized.
+- name: ResponseImageGenCallCompletedEvent
+  fields: 4
+  description: Emitted when an image generation tool call has completed and the final image is available.
+- name: ResponseImageGenCallGeneratingEvent
+  fields: 4
+  description: Emitted when an image generation tool call is actively generating an image (intermediate state).
+- name: ResponseImageGenCallInProgressEvent
+  fields: 4
+  description: Emitted when an image generation tool call is in progress.
+- name: ResponseImageGenCallPartialImageEvent
+  fields: 6
+  description: Emitted when a partial image is available during image generation streaming.
+- name: ResponseInProgressEvent
+  fields: 3
+  description: Emitted when the response is in progress.
+- name: ResponseIncompleteEvent
+  fields: 3
+  description: An event that is emitted when a response finishes as incomplete.
+- name: ResponseLogProb
+  fields: 3
+  description: 'A logprob is the logarithmic probability that the model assigns to producing '
+- name: ResponseMCPCallArgumentsDeltaEvent
+  fields: 5
+  description: Emitted when there is a delta (partial update) to the arguments of an MCP tool call.
+- name: ResponseMCPCallArgumentsDoneEvent
+  fields: 5
+  description: Emitted when the arguments for an MCP tool call are finalized.
+- name: ResponseMCPCallCompletedEvent
+  fields: 4
+  description: Emitted when an MCP  tool call has completed successfully.
+- name: ResponseMCPCallFailedEvent
+  fields: 4
+  description: Emitted when an MCP  tool call has failed.
+- name: ResponseMCPCallInProgressEvent
+  fields: 4
+  description: Emitted when an MCP  tool call is in progress.
+- name: ResponseMCPListToolsCompletedEvent
+  fields: 4
+  description: Emitted when the list of available MCP tools has been successfully retrieved.
+- name: ResponseMCPListToolsFailedEvent
+  fields: 4
+  description: Emitted when the attempt to list available MCP tools has failed.
+- name: ResponseProperties
+  fields: 10
+- name: ResponseQueuedEvent
+  fields: 3
+  description: Emitted when a response is queued and waiting to be processed.
+- name: ResponseTextDeltaEvent
+  fields: 7
+  description: Emitted when there is an additional text delta.
+- name: ResponseTextDoneEvent
+  fields: 7
+  description: Emitted when text content is finalized.
+- name: ResponseTextParam
+  fields: 2
+  description: Configuration options for a text response from the model. Can be plain
+- name: ResponseUsage
+  fields: 5
+  description: Represents token usage details including input tokens, output tokens,
+- name: SkillReferenceParam
+  fields: 3
+- name: SummaryTextContent
+  fields: 2
+  description: A summary text from the model.
+- name: TextResponseFormatJsonSchema
+  fields: 5
+  description: JSON Schema response format. Used to generate structured JSON responses.
+- name: ToolSearchCallItemParam
+  fields: 6
+- name: ToolSearchToolParam
+  fields: 4
+  description: Hosted or BYOT tool search configuration for deferred tools.
+- name: TopLogProb
+  fields: 3
+  description: The top log probability of a token.
+- name: TranscriptTextDoneEvent
+  fields: 4
+  description: Emitted when the transcription is complete. Contains the complete transcription text. Only emitted
+    when you [create a transcription](https://developers.openai.com/api/docs/api-reference/audio/create-t
+- name: TranscriptTextUsageDuration
+  fields: 2
+  description: Usage statistics for models billed by audio input duration.
+- name: TranscriptTextUsageTokens
+  fields: 5
+  description: Usage statistics for models billed by token usage.
+- name: TranscriptionDiarizedSegment
+  fields: 6
+  description: A segment of diarized transcript text with speaker metadata.
+- name: TranscriptionSegment
+  fields: 10
+- name: TranscriptionWord
+  fields: 3
+- name: VadConfig
+  fields: 4
+- name: VideoResource
+  fields: 13
+  description: Structured information describing a generated video job.
+- name: WebSearchActionFind
+  fields: 3
+  description: 'Action type "find_in_page": Searches for a pattern within a loaded page.'
+- name: WebSearchActionOpenPage
+  fields: 2
+  description: Action type "open_page" - Opens a specific URL from search results.
+- name: WebSearchActionSearch
+  fields: 4
+  description: Action type "search" - Performs a web search query.
+- name: WebSearchPreviewTool
+  fields: 4
+  description: This tool searches the web for relevant results to use in a response. Learn more about the [web search
+    tool](https://platform.openai.com/docs/guides/tools-web-search).
+- name: WebSearchToolCall
+  fields: 4
+  description: The results of a web search tool call. See the
+relationships:
+- from: AIHubMixMediaTask
+  to: AIHubMixTaskArtifact
+  type: has_many
+  via: output
+- from: AIHubMixMediaTask
+  to: AIHubMixTaskError
+  type: has_one
+  via: error
+- from: AIHubMixMediaTaskList
+  to: AIHubMixMediaTask
+  type: has_many
+  via: data
+- from: AIHubMixVideoCreateRequest
+  to: AIHubMixMediaReference
+  type: has_many
+  via: input_references
+- from: AIHubMixVideoCreateRequest
+  to: AIHubMixFrameImage
+  type: has_many
+  via: frame_images
+- from: AIHubMixUnifiedTask
+  to: AIHubMixTaskArtifact
+  type: has_many
+  via: output
+- from: AIHubMixUnifiedTask
+  to: AIHubMixTaskError
+  type: has_one
+  via: error
+- from: AIHubMixUnifiedTaskList
+  to: AIHubMixUnifiedTask
+  type: has_many
+  via: data
+- from: AIHubMixModelListResponse
+  to: AIHubMixModelSummary
+  type: has_many
+  via: data
+- from: AIHubMixModelEndpointsResponse
+  to: AIHubMixEndpointDefinition
+  type: has_many
+  via: endpoints
+- from: ChatCompletionAllowedToolsChoice
+  to: ChatCompletionAllowedTools
+  type: has_one
+  via: allowed_tools
+- from: ChatCompletionFunctions
+  to: FunctionParameters
+  type: has_one
+  via: parameters
+- from: ChatCompletionStreamResponseDelta
+  to: ChatCompletionMessageToolCallChunk
+  type: has_many
+  via: tool_calls
+- from: ChatCompletionTool
+  to: FunctionObject
+  type: has_one
+  via: function
+- from: CodeInterpreterTool
+  to: AutoCodeInterpreterToolParam
+  type: has_one
+  via: container
+- from: CompoundFilter
+  to: ComparisonFilter
+  type: has_many
+  via: filters
+- from: ComputerToolCall
+  to: ComputerCallSafetyCheckParam
+  type: has_many
+  via: pending_safety_checks
+- from: ComputerToolCallOutput
+  to: ComputerCallSafetyCheckParam
+  type: has_many
+  via: acknowledged_safety_checks
+- from: ComputerToolCallOutput
+  to: ComputerScreenshotImage
+  type: has_one
+  via: output
+- from: CreateChatCompletionRequest
+  to: ResponseFormatText
+  type: has_one
+  via: response_format
+- from: CreateChatCompletionRequest
+  to: ResponseFormatJsonSchema
+  type: has_one
+  via: response_format
+- from: CreateChatCompletionRequest
+  to: ResponseFormatJsonObject
+  type: has_one
+  via: response_format
+- from: CreateChatCompletionRequest
+  to: PredictionContent
+  type: has_one
+  via: prediction
+- from: CreateChatCompletionRequest
+  to: ChatCompletionTool
+  type: has_many
+  via: tools
+- from: CreateChatCompletionRequest
+  to: CustomToolChatCompletions
+  type: has_many
+  via: tools
+- from: CreateChatCompletionRequest
+  to: ChatCompletionFunctionCallOption
+  type: has_one
+  via: function_call
+- from: CreateChatCompletionRequest
+  to: ChatCompletionFunctions
+  type: has_many
+  via: functions
+- from: CreateChatCompletionResponse
+  to: CompletionUsage
+  type: has_one
+  via: usage
+- from: CreateChatCompletionStreamResponse
+  to: CompletionUsage
+  type: has_one
+  via: usage
+- from: CreateCompletionResponse
+  to: CompletionUsage
+  type: has_one
+  via: usage
+- from: CreateEmbeddingResponse
+  to: Embedding
+  type: has_many
+  via: data
+- from: CreateTranscriptionRequest
+  to: VadConfig
+  type: has_one
+  via: chunking_strategy
+- from: CreateTranscriptionResponseDiarizedJson
+  to: TranscriptionDiarizedSegment
+  type: has_many
+  via: segments
+- from: CreateTranscriptionResponseDiarizedJson
+  to: TranscriptTextUsageTokens
+  type: has_one
+  via: usage
+- from: CreateTranscriptionResponseDiarizedJson
+  to: TranscriptTextUsageDuration
+  type: has_one
+  via: usage
+- from: CreateTranscriptionResponseJson
+  to: TranscriptTextUsageTokens
+  type: has_one
+  via: usage
+- from: CreateTranscriptionResponseJson
+  to: TranscriptTextUsageDuration
+  type: has_one
+  via: usage
+- from: CreateTranscriptionResponseVerboseJson
+  to: TranscriptionWord
+  type: has_many
+  via: words
+- from: CreateTranscriptionResponseVerboseJson
+  to: TranscriptionSegment
+  type: has_many
+  via: segments
+- from: CreateTranscriptionResponseVerboseJson
+  to: TranscriptTextUsageDuration
+  type: has_one
+  via: usage
+- from: CreateTranslationResponseVerboseJson
+  to: TranscriptionSegment
+  type: has_many
+  via: segments
+- from: FunctionObject
+  to: FunctionParameters
+  type: has_one
+  via: parameters
+- from: ImageGenCompletedEvent
+  to: ImagesUsage
+  type: has_one
+  via: usage
+- from: ImagesResponse
+  to: Image
+  type: has_many
+  via: data
+- from: ImagesResponse
+  to: ImageGenUsage
+  type: has_one
+  via: usage
+- from: LocalShellToolCall
+  to: LocalShellExecAction
+  type: has_one
+  via: action
+- from: MCPListTools
+  to: MCPListToolsTool
+  type: has_many
+  via: tools
+- from: MCPTool
+  to: MCPToolFilter
+  type: has_one
+  via: allowed_tools
+- from: ReasoningItem
+  to: SummaryTextContent
+  type: has_many
+  via: summary
+- from: ReasoningItem
+  to: ReasoningTextContent
+  type: has_many
+  via: content
+- from: Response
+  to: ResponseUsage
+  type: has_one
+  via: usage
+- from: Response
+  to: Conversation-2
+  type: has_one
+  via: conversation
+- from: ResponseCompletedEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseCreatedEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseFailedEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseInProgressEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseIncompleteEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseProperties
+  to: Reasoning
+  type: has_one
+  via: reasoning
+- from: ResponseProperties
+  to: ResponseTextParam
+  type: has_one
+  via: text
+- from: ResponseQueuedEvent
+  to: Response
+  type: has_one
+  via: response
+- from: ResponseTextDeltaEvent
+  to: ResponseLogProb
+  type: has_many
+  via: logprobs
+- from: ResponseTextDoneEvent
+  to: ResponseLogProb
+  type: has_many
+  via: logprobs
+- from: TextResponseFormatJsonSchema
+  to: ResponseFormatJsonSchemaSchema
+  type: has_one
+  via: schema
+- from: TranscriptTextDoneEvent
+  to: TranscriptTextUsageTokens
+  type: has_one
+  via: usage
+- from: WebSearchToolCall
+  to: WebSearchActionSearch
+  type: has_one
+  via: action
+- from: WebSearchToolCall
+  to: WebSearchActionOpenPage
+  type: has_one
+  via: action
+- from: WebSearchToolCall
+  to: WebSearchActionFind
+  type: has_one
+  via: action
+- from: InlineSkillParam
+  to: InlineSkillSourceParam
+  type: has_one
+  via: source
+- from: ContainerNetworkPolicyAllowlistParam
+  to: ContainerNetworkPolicyDomainSecretParam
+  type: has_many
+  via: domain_secrets
+- from: LogProb
+  to: TopLogProb
+  type: has_many
+  via: top_logprobs
+- from: OutputTextContent
+  to: LogProb
+  type: has_many
+  via: logprobs
+- from: DragParam
+  to: CoordParam
+  type: has_many
+  via: path
+- from: RankingOptions
+  to: HybridSearchOptions
+  type: has_one
+  via: hybrid_search
+- from: FileSearchTool
+  to: RankingOptions
+  type: has_one
+  via: ranking_options
+- from: AutoCodeInterpreterToolParam
+  to: ContainerNetworkPolicyDisabledParam
+  type: has_one
+  via: network_policy
+- from: AutoCodeInterpreterToolParam
+  to: ContainerNetworkPolicyAllowlistParam
+  type: has_one
+  via: network_policy
+- from: ContainerAutoParam
+  to: ContainerNetworkPolicyDisabledParam
+  type: has_one
+  via: network_policy
+- from: ContainerAutoParam
+  to: ContainerNetworkPolicyAllowlistParam
+  type: has_one
+  via: network_policy
+- from: ContainerAutoParam
+  to: SkillReferenceParam
+  type: has_many
+  via: skills
+- from: ContainerAutoParam
+  to: InlineSkillParam
+  type: has_many
+  via: skills
+- from: LocalEnvironmentParam
+  to: LocalSkillParam
+  type: has_many
+  via: skills
+- from: FunctionShellToolParam
+  to: ContainerAutoParam
+  type: has_one
+  via: environment
+- from: FunctionShellToolParam
+  to: LocalEnvironmentParam
+  type: has_one
+  via: environment
+- from: FunctionShellToolParam
+  to: ContainerReferenceParam
+  type: has_one
+  via: environment
+- from: CustomToolParam
+  to: CustomTextFormatParam
+  type: has_one
+  via: format
+- from: CustomToolParam
+  to: CustomGrammarFormatParam
+  type: has_one
+  via: format
+- from: FunctionToolParam
+  to: EmptyModelParam
+  type: has_one
+  via: parameters
+- from: NamespaceToolParam
+  to: FunctionToolParam
+  type: has_many
+  via: tools
+- from: NamespaceToolParam
+  to: CustomToolParam
+  type: has_many
+  via: tools
+- from: ToolSearchToolParam
+  to: EmptyModelParam
+  type: has_one
+  via: parameters
+- from: WebSearchPreviewTool
+  to: ApproximateLocation
+  type: has_one
+  via: user_location
+- from: FunctionShellCall
+  to: FunctionShellAction
+  type: has_one
+  via: action
+- from: FunctionShellCall
+  to: LocalEnvironmentResource
+  type: has_one
+  via: environment
+- from: FunctionShellCall
+  to: ContainerReferenceResource
+  type: has_one
+  via: environment
+- from: FunctionShellCallOutputContent
+  to: FunctionShellCallOutputTimeoutOutcome
+  type: has_one
+  via: outcome
+- from: FunctionShellCallOutputContent
+  to: FunctionShellCallOutputExitOutcome
+  type: has_one
+  via: outcome
+- from: FunctionShellCallOutput
+  to: FunctionShellCallOutputContent
+  type: has_many
+  via: output
+- from: ApplyPatchToolCall
+  to: ApplyPatchCreateFileOperation
+  type: has_one
+  via: operation
+- from: ApplyPatchToolCall
+  to: ApplyPatchDeleteFileOperation
+  type: has_one
+  via: operation
+- from: ApplyPatchToolCall
+  to: ApplyPatchUpdateFileOperation
+  type: has_one
+  via: operation
+- from: ComputerCallOutputItemParam
+  to: ComputerScreenshotImage
+  type: has_one
+  via: output
+- from: ToolSearchCallItemParam
+  to: EmptyModelParam
+  type: has_one
+  via: arguments
+- from: FunctionShellCallItemParam
+  to: FunctionShellActionParam
+  type: has_one
+  via: action
+- from: FunctionShellCallItemParam
+  to: LocalEnvironmentParam
+  type: has_one
+  via: environment
+- from: FunctionShellCallItemParam
+  to: ContainerReferenceParam
+  type: has_one
+  via: environment
+- from: FunctionShellCallOutputItemParam
+  to: FunctionShellCallOutputContentParam
+  type: has_many
+  via: output
+- from: ImageGenUsage
+  to: ImageGenOutputTokensDetails
+  type: has_one
+  via: output_tokens_details
+- from: ImageGenUsage
+  to: ImageGenInputUsageDetails
+  type: has_one
+  via: input_tokens_details
+- from: VideoResource
+  to: Error-2
+  type: has_one
+  via: error
+- from: CreateVideoMultipartBody
+  to: ImageRefParam-2
+  type: has_one
+  via: input_reference
+- from: CreateVideoJsonBody
+  to: ImageRefParam-2
+  type: has_one
+  via: input_reference
+- from: AnthropicBashTool_20250124
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicCitationsDelta
+  to: AnthropicResponseCharLocationCitation
+  type: has_one
+  via: citation
+- from: AnthropicCitationsDelta
+  to: AnthropicResponsePageLocationCitation
+  type: has_one
+  via: citation
+- from: AnthropicCitationsDelta
+  to: AnthropicResponseContentBlockLocationCitation
+  type: has_one
+  via: citation
+- from: AnthropicCitationsDelta
+  to: AnthropicResponseWebSearchResultLocationCitation
+  type: has_one
+  via: citation
+- from: AnthropicCitationsDelta
+  to: AnthropicResponseSearchResultLocationCitation
+  type: has_one
+  via: citation
+- from: AnthropicCodeExecutionTool_20250522
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicCodeExecutionTool_20250825
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicCodeExecutionTool_20260120
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicContentBlockDeltaEvent
+  to: AnthropicTextContentBlockDelta
+  type: has_one
+  via: delta
+- from: AnthropicContentBlockDeltaEvent
+  to: AnthropicInputJsonContentBlockDelta
+  type: has_one
+  via: delta
+- from: AnthropicContentBlockDeltaEvent
+  to: AnthropicCitationsDelta
+  type: has_one
+  via: delta
+- from: AnthropicContentBlockDeltaEvent
+  to: AnthropicThinkingContentBlockDelta
+  type: has_one
+  via: delta
+- from: AnthropicContentBlockDeltaEvent
+  to: AnthropicSignatureContentBlockDelta
+  type: has_one
+  via: delta
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseTextBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseThinkingBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseRedactedThinkingBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseToolUseBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseServerToolUseBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseWebSearchToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseWebFetchToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseCodeExecutionToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseBashCodeExecutionToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseToolSearchToolResultBlock
+  type: has_one
+  via: content_block
+- from: AnthropicContentBlockStartEvent
+  to: AnthropicResponseContainerUploadBlock
+  type: has_one
+  via: content_block
+- from: AnthropicCreateMessageParams
+  to: AnthropicInputMessage
+  type: has_many
+  via: messages
+- from: AnthropicCreateMessageParams
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicCreateMessageParams
+  to: AnthropicMetadata
+  type: has_one
+  via: metadata
+- from: AnthropicCreateMessageParams
+  to: AnthropicOutputConfig
+  type: has_one
+  via: output_config
+- from: AnthropicCreateMessageParams
+  to: AnthropicTool
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicBashTool_20250124
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicCodeExecutionTool_20250522
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicCodeExecutionTool_20250825
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicCodeExecutionTool_20260120
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicMemoryTool_20250818
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicTextEditor_20250124
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicTextEditor_20250429
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicTextEditor_20250728
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicWebSearchTool_20250305
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicWebFetchTool_20250910
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicWebSearchTool_20260209
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicWebFetchTool_20260209
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicWebFetchTool_20260309
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicToolSearchToolBM25_20251119
+  type: has_many
+  via: tools
+- from: AnthropicCreateMessageParams
+  to: AnthropicToolSearchToolRegex_20251119
+  type: has_many
+  via: tools
+- from: AnthropicMemoryTool_20250818
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicMessage
+  to: AnthropicRefusalStopDetails
+  type: has_one
+  via: stop_details
+- from: AnthropicMessage
+  to: AnthropicUsage
+  type: has_one
+  via: usage
+- from: AnthropicMessage
+  to: AnthropicContainer
+  type: has_one
+  via: container
+- from: AnthropicMessageDelta
+  to: AnthropicContainer
+  type: has_one
+  via: container
+- from: AnthropicMessageDelta
+  to: AnthropicRefusalStopDetails
+  type: has_one
+  via: stop_details
+- from: AnthropicMessageDeltaEvent
+  to: AnthropicMessageDelta
+  type: has_one
+  via: delta
+- from: AnthropicMessageDeltaEvent
+  to: AnthropicMessageDeltaUsage
+  type: has_one
+  via: usage
+- from: AnthropicMessageDeltaUsage
+  to: AnthropicOutputTokensDetails
+  type: has_one
+  via: output_tokens_details
+- from: AnthropicMessageDeltaUsage
+  to: AnthropicServerToolUsage
+  type: has_one
+  via: server_tool_use
+- from: AnthropicMessageStartEvent
+  to: AnthropicMessage
+  type: has_one
+  via: message
+- from: AnthropicOutputConfig
+  to: AnthropicJsonOutputFormat
+  type: has_one
+  via: format
+- from: AnthropicRequestBashCodeExecutionResultBlock
+  to: AnthropicRequestBashCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicRequestBashCodeExecutionToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestBashCodeExecutionToolResultBlock
+  to: AnthropicRequestBashCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicRequestBashCodeExecutionToolResultBlock
+  to: AnthropicRequestBashCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestCodeExecutionResultBlock
+  to: AnthropicRequestCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicRequestCodeExecutionToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestCodeExecutionToolResultBlock
+  to: AnthropicRequestCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicRequestCodeExecutionToolResultBlock
+  to: AnthropicRequestCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestCodeExecutionToolResultBlock
+  to: AnthropicRequestEncryptedCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestContainerUploadBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicRequestCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicBase64PDFSource
+  type: has_one
+  via: source
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicPlainTextSource
+  type: has_one
+  via: source
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicContentBlockSource
+  type: has_one
+  via: source
+- from: AnthropicRequestDocumentBlock
+  to: AnthropicURLPDFSource
+  type: has_one
+  via: source
+- from: AnthropicRequestEncryptedCodeExecutionResultBlock
+  to: AnthropicRequestCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicRequestImageBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestImageBlock
+  to: AnthropicBase64ImageSource
+  type: has_one
+  via: source
+- from: AnthropicRequestImageBlock
+  to: AnthropicURLImageSource
+  type: has_one
+  via: source
+- from: AnthropicRequestMidConvSystemBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestMidConvSystemBlock
+  to: AnthropicRequestTextBlock
+  type: has_many
+  via: content
+- from: AnthropicRequestSearchResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestSearchResultBlock
+  to: AnthropicRequestCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicRequestSearchResultBlock
+  to: AnthropicRequestTextBlock
+  type: has_many
+  via: content
+- from: AnthropicRequestServerToolUseBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestServerToolUseBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestServerToolUseBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestServerToolUseBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicRequestTextBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  to: AnthropicRequestTextEditorCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  to: AnthropicRequestTextEditorCodeExecutionViewResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  to: AnthropicRequestTextEditorCodeExecutionCreateResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestTextEditorCodeExecutionToolResultBlock
+  to: AnthropicRequestTextEditorCodeExecutionStrReplaceResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestToolReferenceBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestToolSearchToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestToolSearchToolResultBlock
+  to: AnthropicRequestToolSearchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicRequestToolSearchToolResultBlock
+  to: AnthropicRequestToolSearchToolSearchResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestToolSearchToolSearchResultBlock
+  to: AnthropicRequestToolReferenceBlock
+  type: has_many
+  via: tool_references
+- from: AnthropicRequestToolUseBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestToolUseBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestToolUseBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestToolUseBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebFetchResultBlock
+  to: AnthropicRequestDocumentBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicRequestWebFetchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicRequestWebFetchToolResultBlock
+  to: AnthropicRequestWebFetchResultBlock
+  type: has_one
+  via: content
+- from: AnthropicRequestWebSearchToolResultBlock
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicRequestWebSearchToolResultBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebSearchToolResultBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebSearchToolResultBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicRequestWebSearchToolResultBlock
+  to: AnthropicRequestWebSearchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseBashCodeExecutionResultBlock
+  to: AnthropicResponseBashCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicResponseBashCodeExecutionToolResultBlock
+  to: AnthropicResponseBashCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseBashCodeExecutionToolResultBlock
+  to: AnthropicResponseBashCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseCodeExecutionResultBlock
+  to: AnthropicResponseCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicResponseCodeExecutionToolResultBlock
+  to: AnthropicResponseCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseCodeExecutionToolResultBlock
+  to: AnthropicResponseCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseCodeExecutionToolResultBlock
+  to: AnthropicResponseEncryptedCodeExecutionResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseDocumentBlock
+  to: AnthropicResponseCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicResponseDocumentBlock
+  to: AnthropicBase64PDFSource
+  type: has_one
+  via: source
+- from: AnthropicResponseDocumentBlock
+  to: AnthropicPlainTextSource
+  type: has_one
+  via: source
+- from: AnthropicResponseEncryptedCodeExecutionResultBlock
+  to: AnthropicResponseCodeExecutionOutputBlock
+  type: has_many
+  via: content
+- from: AnthropicResponseServerToolUseBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseServerToolUseBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseServerToolUseBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  to: AnthropicResponseTextEditorCodeExecutionToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  to: AnthropicResponseTextEditorCodeExecutionViewResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  to: AnthropicResponseTextEditorCodeExecutionCreateResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseTextEditorCodeExecutionToolResultBlock
+  to: AnthropicResponseTextEditorCodeExecutionStrReplaceResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseToolSearchToolResultBlock
+  to: AnthropicResponseToolSearchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseToolSearchToolResultBlock
+  to: AnthropicResponseToolSearchToolSearchResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseToolSearchToolSearchResultBlock
+  to: AnthropicResponseToolReferenceBlock
+  type: has_many
+  via: tool_references
+- from: AnthropicResponseToolUseBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseToolUseBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseToolUseBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebFetchResultBlock
+  to: AnthropicResponseDocumentBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseWebFetchToolResultBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebFetchToolResultBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebFetchToolResultBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebFetchToolResultBlock
+  to: AnthropicResponseWebFetchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicResponseWebFetchToolResultBlock
+  to: AnthropicResponseWebFetchResultBlock
+  type: has_one
+  via: content
+- from: AnthropicResponseWebSearchToolResultBlock
+  to: AnthropicDirectCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebSearchToolResultBlock
+  to: AnthropicServerToolCaller
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebSearchToolResultBlock
+  to: AnthropicServerToolCaller_20260120
+  type: has_one
+  via: caller
+- from: AnthropicResponseWebSearchToolResultBlock
+  to: AnthropicResponseWebSearchToolResultError
+  type: has_one
+  via: content
+- from: AnthropicTextEditor_20250124
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicTextEditor_20250429
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicTextEditor_20250728
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicTool
+  to: AnthropicInputSchema
+  type: has_one
+  via: input_schema
+- from: AnthropicTool
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicToolSearchToolBM25_20251119
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicToolSearchToolRegex_20251119
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicUsage
+  to: AnthropicCacheCreation
+  type: has_one
+  via: cache_creation
+- from: AnthropicUsage
+  to: AnthropicOutputTokensDetails
+  type: has_one
+  via: output_tokens_details
+- from: AnthropicUsage
+  to: AnthropicServerToolUsage
+  type: has_one
+  via: server_tool_use
+- from: AnthropicWebFetchTool_20250910
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicWebFetchTool_20250910
+  to: AnthropicRequestCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicWebFetchTool_20260209
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicWebFetchTool_20260209
+  to: AnthropicRequestCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicWebFetchTool_20260309
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicWebFetchTool_20260309
+  to: AnthropicRequestCitationsConfig
+  type: has_one
+  via: citations
+- from: AnthropicWebSearchTool_20250305
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicWebSearchTool_20250305
+  to: AnthropicUserLocation
+  type: has_one
+  via: user_location
+- from: AnthropicWebSearchTool_20260209
+  to: AnthropicCacheControlEphemeral
+  type: has_one
+  via: cache_control
+- from: AnthropicWebSearchTool_20260209
+  to: AnthropicUserLocation
+  type: has_one
+  via: user_location

@@ -1,0 +1,426 @@
+generated: '2026-10-13'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/aihubmix-openapi.yml
+vocabulary:
+  name: AIHubMix Domain Vocabulary
+  description: 'Terms declared by AIHubMix''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-13'
+  terms:
+  - term: OpenAI Compatible
+    definition: OpenAI-compatible endpoints (chat, completions, embeddings, images, audio, videos, moderations).
+    tags:
+    - Resource Group
+    source: openapi/aihubmix-openapi.yml
+  - term: Anthropic Compatible
+    definition: Anthropic-native endpoints (messages with Anthropic protocol).
+    tags:
+    - Resource Group
+    source: openapi/aihubmix-openapi.yml
+  - term: Google Vertex AI Compatible
+    definition: Google Gemini / Vertex AI endpoints.
+    tags:
+    - Resource Group
+    source: openapi/aihubmix-openapi.yml
+  - term: AIHubMix Unified API
+    definition: AIHubMix native image, video, task, and model-discovery endpoints.
+    tags:
+    - Resource Group
+    source: openapi/aihubmix-openapi.yml
+  - term: AIHubMixTaskStatus
+    definition: Current task state. Completed, failed, and cancelled are terminal states.
+    tags:
+    - Enumeration
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixTaskStatus
+  - term: AIHubMixTaskError
+    definition: 'Object declared by the contract with fields: code, message, upstream_detail.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixTaskError
+  - term: AIHubMixTaskArtifact
+    definition: 'Object declared by the contract with fields: index, result_id, type, content_type, content_url, b64_json.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixTaskArtifact
+  - term: AIHubMixMediaTask
+    definition: 'Object declared by the contract with fields: id, object, model, status, output, error, created_at, completed_at, expires_at.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixMediaTask
+  - term: AIHubMixMediaTaskList
+    definition: 'Object declared by the contract with fields: object, data, has_more, next_after.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixMediaTaskList
+  - term: AIHubMixImageCreateRequest
+    definition: 'Object declared by the contract with fields: model, prompt, n, size, aspect_ratio, seed, negative_prompt, image, images, mask,
+      output_format, response_format. (4 more)'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixImageCreateRequest
+  - term: AIHubMixMediaReference
+    definition: 'Object declared by the contract with fields: type, url.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixMediaReference
+  - term: AIHubMixFrameImage
+    definition: 'Object declared by the contract with fields: frame_type, image_url.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixFrameImage
+  - term: AIHubMixVideoCreateRequest
+    definition: 'Object declared by the contract with fields: model, prompt, duration, aspect_ratio, resolution, size, seed, input_references,
+      frame_images, generate_audio, webhook_url, webhook_events_filter. (1 more)'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixVideoCreateRequest
+  - term: AIHubMixUnifiedTask
+    definition: 'Object declared by the contract with fields: id, object, model, status, output, error, created_at, completed_at, expires_at.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixUnifiedTask
+  - term: AIHubMixUnifiedTaskList
+    definition: 'Object declared by the contract with fields: object, data, has_more, next_after.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixUnifiedTaskList
+  - term: AIHubMixModelSummary
+    definition: 'Object declared by the contract with fields: model_id, model_name, types, input_modalities, schema_checked.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixModelSummary
+  - term: AIHubMixModelListResponse
+    definition: 'Object declared by the contract with fields: success, message, data.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixModelListResponse
+  - term: AIHubMixEndpointDefinition
+    definition: 'Object declared by the contract with fields: endpoint, method, path, content_types, lifecycle, request.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixEndpointDefinition
+  - term: AIHubMixModelEndpointsResponse
+    definition: 'Object declared by the contract with fields: default_endpoint, modality, endpoints.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AIHubMixModelEndpointsResponse
+  - term: AudioResponseFormat
+    definition: 'The format of the output, in one of these options: `json`, `text`, `srt`, `verbose_json`, `vtt`, or `diarized_json`. For `gpt-4o-transcribe`
+      and `gpt-4o-mini-transcribe`, the only supported format is `json`. For `gpt-4o-transcribe-diarize`, the supported formats are `json`, `text`,
+      and `diarized_json`, with `diarized_json` required to receive speaker annotations.'
+    tags:
+    - Enumeration
+    source: openapi/aihubmix-openapi.yml#/components/schemas/AudioResponseFormat
+  - term: Allowed tools
+    definition: Constrains the tools available to the model to a pre-defined set.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionAllowedTools
+  - term: Allowed tools
+    definition: Constrains the tools available to the model to a pre-defined set.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionAllowedToolsChoice
+  - term: ChatCompletionFunctionCallOption
+    definition: 'Specifying a particular function via `{"name": "my_function"}` forces the model to call that function.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionFunctionCallOption
+  - term: ChatCompletionFunctions
+    definition: 'Object declared by the contract with fields: description, name, parameters.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionFunctions
+  - term: Custom tool call
+    definition: A call to a custom tool created by the model.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionMessageCustomToolCall
+  - term: Function tool call
+    definition: A call to a function tool created by the model.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionMessageToolCall
+  - term: ChatCompletionMessageToolCallChunk
+    definition: 'Object declared by the contract with fields: index, id, type, function.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionMessageToolCallChunk
+  - term: ChatCompletionMessageToolCalls
+    definition: The tool calls generated by the model, such as function calls.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionMessageToolCalls
+  - term: Function tool choice
+    definition: Specifies a tool the model should use. Use to force the model to call a specific function.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionNamedToolChoice
+  - term: Custom tool choice
+    definition: Specifies a tool the model should use. Use to force the model to call a specific custom tool.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionNamedToolChoiceCustom
+  - term: Assistant message
+    definition: Messages sent by the model in response to user messages.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestAssistantMessage
+  - term: Developer message
+    definition: Developer-provided instructions that the model should follow, regardless of messages sent by the user. With o1 models and newer,
+      `developer` messages replace the previous `system` messages.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestDeveloperMessage
+  - term: Function message
+    definition: 'Object declared by the contract with fields: role, content, name.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestFunctionMessage
+  - term: Audio content part
+    definition: Learn about [audio inputs](https://developers.openai.com/api/docs/guides/audio).
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestMessageContentPartAudio
+  - term: File content part
+    definition: Learn about [file inputs](https://developers.openai.com/api/docs/guides/text) for text generation.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestMessageContentPartFile
+  - term: Image content part
+    definition: Learn about [image inputs](https://developers.openai.com/api/docs/guides/vision).
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestMessageContentPartImage
+  - term: Refusal content part
+    definition: 'Object declared by the contract with fields: type, refusal.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestMessageContentPartRefusal
+  - term: Text content part
+    definition: Learn about [text inputs](https://developers.openai.com/api/docs/guides/text-generation).
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestMessageContentPartText
+  - term: System message
+    definition: Developer-provided instructions that the model should follow, regardless of messages sent by the user. With o1 models and newer,
+      use `developer` messages for this purpose instead.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestSystemMessage
+  - term: Tool message
+    definition: 'Object declared by the contract with fields: role, content, tool_call_id.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestToolMessage
+  - term: User message
+    definition: Messages sent by an end user, containing prompts or additional context information.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionRequestUserMessage
+  - term: ChatCompletionResponseMessage
+    definition: A chat completion message generated by the model.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionResponseMessage
+  - term: ChatCompletionStreamResponseDelta
+    definition: A chat completion delta generated by streamed model responses.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionStreamResponseDelta
+  - term: ChatCompletionTokenLogprob
+    definition: 'Object declared by the contract with fields: token, logprob, bytes, top_logprobs.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionTokenLogprob
+  - term: Function tool
+    definition: A function tool that can be used to generate a response.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionTool
+  - term: ChatCompletionToolChoiceOption
+    definition: 'Controls which (if any) tool is called by the model. `none` means the model will not call any tool and instead generates a message.
+      `auto` means the model can pick between generating a message or calling one or more tools. `required` means the model must call one or more
+      tools. Specifying a particular tool via `{"type": "function", "function": {"name": "my_function"}}` forces the model to call tha'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ChatCompletionToolChoiceOption
+  - term: Code interpreter
+    definition: A tool that runs Python code to help generate a response to a prompt.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CodeInterpreterTool
+  - term: Code interpreter tool call
+    definition: A tool call to run code.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CodeInterpreterToolCall
+  - term: Comparison Filter
+    definition: A filter used to compare a specified attribute key to a given value using a defined comparison operation.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ComparisonFilter
+  - term: CompletionUsage
+    definition: Usage statistics for the completion request.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CompletionUsage
+  - term: Compound Filter
+    definition: Combine multiple filters using `and` or `or`.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CompoundFilter
+  - term: Computer Action List
+    definition: Flattened batched actions for `computer_use`. Each action includes an `type` discriminator and action-specific fields.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ComputerActionList
+  - term: ComputerScreenshotImage
+    definition: A computer screenshot image used with the computer use tool.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ComputerScreenshotImage
+  - term: Computer tool call
+    definition: A tool call to a computer use tool. See the [computer use guide](https://developers.openai.com/api/docs/guides/tools-computer-use)
+      for more information.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ComputerToolCall
+  - term: Computer tool call output
+    definition: The output of a computer tool call.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ComputerToolCallOutput
+  - term: ConversationParam
+    definition: The conversation that this response belongs to. Items from this conversation are prepended to `input_items` for this response
+      request. Input items and output items from this response are automatically added to this conversation after this response completes.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/ConversationParam
+  - term: CreateChatCompletionRequest
+    definition: 'Object declared by the contract with fields: top_k.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateChatCompletionRequest
+  - term: CreateChatCompletionResponse
+    definition: Represents a chat completion response returned by model, based on the provided input.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateChatCompletionResponse
+  - term: CreateChatCompletionStreamResponse
+    definition: Represents a streamed chunk of a chat completion response returned by the model, based on the provided input. [Learn more](https://developers.openai.com/api/docs/guides/streaming-responses).
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateChatCompletionStreamResponse
+  - term: CreateCompletionRequest
+    definition: 'Object declared by the contract with fields: model, prompt, best_of, echo, frequency_penalty, logit_bias, logprobs, max_tokens,
+      n, presence_penalty, seed, stop. (6 more)'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateCompletionRequest
+  - term: CreateCompletionResponse
+    definition: 'Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape
+      (unlike the chat endpoint).'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateCompletionResponse
+  - term: CreateEmbeddingRequest
+    definition: 'Object declared by the contract with fields: input, model, encoding_format, dimensions, user.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateEmbeddingRequest
+  - term: CreateEmbeddingResponse
+    definition: 'Object declared by the contract with fields: data, model, object, usage.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateEmbeddingResponse
+  - term: CreateImageRequest
+    definition: 'Object declared by the contract with fields: prompt, model, n, quality, response_format, output_format, output_compression, stream,
+      partial_images, size, moderation, background. (2 more)'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateImageRequest
+  - term: CreateModerationRequest
+    definition: 'Object declared by the contract with fields: input, model.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateModerationRequest
+  - term: CreateModerationResponse
+    definition: Represents if a given text input is potentially harmful.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateModerationResponse
+  - term: CreateResponse
+    definition: 'Object declared by the contract with fields: top_k.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateResponse
+  - term: CreateSpeechRequest
+    definition: 'Object declared by the contract with fields: model, input, instructions, voice, response_format, speed, stream_format.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateSpeechRequest
+  - term: CreateTranscriptionRequest
+    definition: 'Object declared by the contract with fields: file, model, language, prompt, response_format, temperature, include, timestamp_granularities,
+      stream, chunking_strategy, known_speaker_names, known_speaker_references.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranscriptionRequest
+  - term: CreateTranscriptionResponseDiarizedJson
+    definition: Represents a diarized transcription response returned by the model, including the combined transcript and speaker-segment annotations.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranscriptionResponseDiarizedJson
+  - term: CreateTranscriptionResponseJson
+    definition: Represents a transcription response returned by model, based on the provided input.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranscriptionResponseJson
+  - term: CreateTranscriptionResponseVerboseJson
+    definition: Represents a verbose json transcription response returned by model, based on the provided input.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranscriptionResponseVerboseJson
+  - term: CreateTranslationRequest
+    definition: 'Object declared by the contract with fields: file, model, prompt, response_format, temperature.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranslationRequest
+  - term: CreateTranslationResponseJson
+    definition: 'Object declared by the contract with fields: text.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranslationResponseJson
+  - term: CreateTranslationResponseVerboseJson
+    definition: 'Object declared by the contract with fields: language, duration, text, segments.'
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CreateTranslationResponseVerboseJson
+  - term: Custom tool call
+    definition: A call to a custom tool created by the model.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CustomToolCall
+  - term: Custom tool call output
+    definition: The output of a custom tool call from your code, being sent back to the model.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CustomToolCallOutput
+  - term: Custom tool
+    definition: A custom tool that processes input using a specified format.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/CustomToolChatCompletions
+  - term: Input message
+    definition: A message input to the model with a role indicating instruction following hierarchy. Instructions given with the `developer` or
+      `system` role take precedence over instructions given with the `user` role. Messages with the `assistant` role are presumed to have been
+      generated by the model in previous interactions.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/EasyInputMessage
+  - term: Embedding
+    definition: Represents an embedding vector returned by embedding endpoint.
+    tags:
+    - Object
+    source: openapi/aihubmix-openapi.yml#/components/schemas/Embedding
