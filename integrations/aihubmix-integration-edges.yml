@@ -1,5 +1,5 @@
 generated: '2026-10-13'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/aihubmix/integrations
 - https://n8n.io/integrations/aihubmix/
@@ -12,5 +12,23 @@ checked:
 - https://zapier.com/apps/aihubmix/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/aihubmix/blob/main/openapi/aihubmix-openapi.yml#L21670
+  contract_reference:
+    repo: aihubmix
+    spec_file: aihubmix-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'aihubmix declares OpenAI compatibility: ''- name: OpenAI Compatible'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-13'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
 templates: []
