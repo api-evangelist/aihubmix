@@ -1,0 +1,303 @@
+openapi: 3.2.0
+info:
+  title: Aihubmix Google Vertex AI Compatible API
+  version: 2.1.1
+  contact:
+    name: AIHubMix Team
+  x-upstream:
+    vendorSpecs:
+      packageVersion: 0.1.1
+      installedFrom: npm
+    sources:
+      openai/official:
+        version: '2026-05-31'
+        hash: sha256:a203971a0bc0cd3b903b9488e3ac40eaa161a274dfaf172c1da73eee029147a8
+      anthropic/official:
+        version: '2026-05-31'
+        hash: sha256:f9d488f9290d78a081bed62fa0c040476b5d009f3db92c06c8e279e69df73fc9
+    layers:
+    - role: L0-base
+      source: avs://openai/official
+      protocol: openai
+      authority: official
+    - role: L0-base
+      source: avs://anthropic/official
+      protocol: anthropic
+      authority: official
+    - role: gateway-other
+      source: gateway/anthropic-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: horizontal-auth
+      source: gateway/auth.yml
+      protocol: all
+      authority: gateway
+    - role: horizontal-errors
+      source: gateway/errors.yml
+      protocol: all
+      authority: gateway
+    - role: L3-gateway
+      source: gateway/openai-gateway.yml
+      protocol: openai
+      authority: gateway
+    - role: gateway-other
+      source: gateway/openai-image-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: gateway-other
+      source: gateway/openai-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: L2-passthrough
+      source: gateway/openai-passthrough.yml
+      protocol: openai
+      authority: gateway
+  description: 'Operations tagged Google Vertex AI Compatible across 2 of this provider''s published API definitions: aihubmix-docs-openapi.json, aihubmix-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://aihubmix.com
+  description: Production
+- url: https://api.inferera.com
+  description: Backup (use when the primary domain is unreachable)
+security:
+- gatewayBearer: []
+tags:
+- name: Google Vertex AI Compatible
+  description: Google Gemini / Vertex AI endpoints.
+paths:
+  /gemini/v1beta/models/{model}:generateContent:
+    parameters:
+    - name: model
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Gemini model name, e.g. `gemini-2.5-pro`.
+    x-source:
+      from: gateway
+      authority: gateway
+    post:
+      summary: Generate Content
+      description: 'Native Gemini protocol entry point. Mirrors the request and response
+
+        shapes of `https://generativelanguage.googleapis.com` — clients may
+
+        point the google-genai SDK at this gateway directly.'
+      operationId: geminiGenerateContent
+      tags:
+      - Google Vertex AI Compatible
+      x-source:
+        from: gemini/official
+        authority: manual
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeminiGenerateContentRequest'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeminiGenerateContentResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+        '403':
+          description: Permission denied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+        5XX:
+          description: Server / upstream error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayError'
+      security:
+      - gatewayGeminiKey: []
+      - gatewayGeminiQuery: []
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+components:
+  schemas:
+    GeminiGenerateContentRequest:
+      type: object
+      description: 'Native Gemini `generateContent` request body. Field definitions here
+
+        are illustrative — refer to
+
+        https://ai.google.dev/api/rest/v1beta/models/generateContent as the
+
+        authoritative reference.
+
+        '
+      x-source:
+        from: gemini/official
+        authority: manual
+      additionalProperties: true
+      properties:
+        contents:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        generationConfig:
+          type: object
+          additionalProperties: true
+        safetySettings:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        systemInstruction:
+          type: object
+          additionalProperties: true
+        tools:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    GatewayError:
+      type: object
+      description: 'OpenAI-compatible error envelope. Top-level `error` object carrying
+
+        `message` / `type` / `param` / `code`. `request_id` lives in the
+
+        `X-Request-Id` response header, not in the body. The legacy `upstream`
+
+        field is no longer emitted.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - message
+          properties:
+            message:
+              type: string
+              description: Human-readable error message.
+            type:
+              type: string
+              nullable: true
+              description: 'Error category. OpenAI-compatible values include
+
+                invalid_request_error / authentication_error / permission_error /
+
+                not_found_error / rate_limit_error, etc. The upstream value is
+
+                passed through verbatim; the enum is not fixed.
+
+                '
+            param:
+              type: string
+              nullable: true
+              description: Name of the offending field, when applicable.
+            code:
+              nullable: true
+              description: 'Sub-error code. May be a string or integer (the gateway treats
+
+                `code` as an arbitrary type).
+
+                '
+    GeminiGenerateContentResponse:
+      type: object
+      description: 'Native Gemini response body. Refer to Google''s official documentation
+
+        for the authoritative field reference.
+
+        '
+      x-source:
+        from: gemini/official
+        authority: manual
+      additionalProperties: true
+  securitySchemes:
+    gatewayBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+      description: 'Gateway-issued API key, formatted as `sk-gateway-xxxxxxxx`.
+
+        Used by OpenAI-shaped endpoints (/v1/chat/completions, etc.).
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayAnthropicKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Used by Anthropic-shaped endpoints (/v1/messages). The value is
+
+        the gateway API key, shared with OpenAI-shaped endpoints. Clients
+
+        identifying as anthropic-sdk-* will use this header.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayGeminiKey:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: 'Used by Gemini-shaped endpoints (/v1beta/...). The value is the
+
+        gateway API key, shared with other endpoint shapes. The google-genai
+
+        SDK uses this header by default.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayGeminiQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: 'Query-parameter fallback for Gemini-shaped endpoints. Some SDKs
+
+        and tools only support the `?key=` form. Value is the same as
+
+        `gatewayGeminiKey`.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+x-refined-from:
+- aihubmix-docs-openapi.json
+- aihubmix-openapi.yml

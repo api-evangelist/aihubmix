@@ -1,0 +1,1058 @@
+openapi: 3.2.0
+info:
+  title: AIHubMix Unified API
+  version: 2.1.1
+  contact:
+    name: AIHubMix Team
+  x-upstream:
+    vendorSpecs:
+      packageVersion: 0.1.1
+      installedFrom: npm
+    sources:
+      openai/official:
+        version: '2026-05-31'
+        hash: sha256:a203971a0bc0cd3b903b9488e3ac40eaa161a274dfaf172c1da73eee029147a8
+      anthropic/official:
+        version: '2026-05-31'
+        hash: sha256:f9d488f9290d78a081bed62fa0c040476b5d009f3db92c06c8e279e69df73fc9
+    layers:
+    - role: L0-base
+      source: avs://openai/official
+      protocol: openai
+      authority: official
+    - role: L0-base
+      source: avs://anthropic/official
+      protocol: anthropic
+      authority: official
+    - role: gateway-other
+      source: gateway/anthropic-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: horizontal-auth
+      source: gateway/auth.yml
+      protocol: all
+      authority: gateway
+    - role: horizontal-errors
+      source: gateway/errors.yml
+      protocol: all
+      authority: gateway
+    - role: L3-gateway
+      source: gateway/openai-gateway.yml
+      protocol: openai
+      authority: gateway
+    - role: gateway-other
+      source: gateway/openai-image-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: gateway-other
+      source: gateway/openai-mappings.yml
+      protocol: all
+      authority: gateway
+    - role: L2-passthrough
+      source: gateway/openai-passthrough.yml
+      protocol: openai
+      authority: gateway
+  description: 'Operations tagged AIHubMix Unified API across 2 of this provider''s published API definitions: aihubmix-docs-openapi.json, aihubmix-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://aihubmix.com
+  description: Production
+- url: https://api.inferera.com
+  description: Backup (use when the primary domain is unreachable)
+security:
+- gatewayBearer: []
+tags:
+- name: AIHubMix Unified API
+  description: AIHubMix native image, video, task, and model-discovery endpoints.
+paths:
+  /ai/v1/images/generations:
+    post:
+      operationId: createAIHubMixImage
+      tags:
+      - AIHubMix Unified API
+      summary: Create an AIHubMix image generation
+      description: Generates images with the AIHubMix native media protocol. Requests are synchronous by default and become asynchronous when `async` is `true`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIHubMixImageCreateRequest'
+      responses:
+        '200':
+          description: Image generation task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTask'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/images:
+    get:
+      operationId: listAIHubMixImages
+      tags:
+      - AIHubMix Unified API
+      summary: List AIHubMix image tasks
+      description: Returns snapshots of image tasks created by the current API key.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixAfter'
+      - $ref: '#/components/parameters/AIHubMixLimit'
+      - $ref: '#/components/parameters/AIHubMixOrder'
+      responses:
+        '200':
+          description: Image task list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTaskList'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/images/{id}:
+    get:
+      operationId: getAIHubMixImage
+      tags:
+      - AIHubMix Unified API
+      summary: Get an AIHubMix image task
+      description: Returns the latest state of an image task. Poll this endpoint for asynchronous image generation.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      responses:
+        '200':
+          description: Image task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTask'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/images/{id}/content/{result_id}:
+    get:
+      operationId: downloadAIHubMixImageResult
+      tags:
+      - AIHubMix Unified API
+      summary: Download an AIHubMix image result
+      description: Downloads one result from a completed image task. Clients normally use the `output[].content_url` returned by the task object.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      - $ref: '#/components/parameters/AIHubMixResultId'
+      responses:
+        '200':
+          description: Image bytes
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/webp:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/videos:
+    post:
+      operationId: createAIHubMixVideo
+      tags:
+      - AIHubMix Unified API
+      summary: Create an AIHubMix video task
+      description: Creates a video task with the AIHubMix native media protocol. Video generation is always asynchronous.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AIHubMixVideoCreateRequest'
+      responses:
+        '200':
+          description: Video task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTask'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    get:
+      operationId: listAIHubMixVideos
+      tags:
+      - AIHubMix Unified API
+      summary: List AIHubMix video tasks
+      description: Returns snapshots of video tasks created by the current API key.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixAfter'
+      - $ref: '#/components/parameters/AIHubMixLimit'
+      - $ref: '#/components/parameters/AIHubMixOrder'
+      responses:
+        '200':
+          description: Video task list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTaskList'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/videos/{id}:
+    get:
+      operationId: getAIHubMixVideo
+      tags:
+      - AIHubMix Unified API
+      summary: Get an AIHubMix video task
+      description: Returns the latest state of a video task. Poll this endpoint until the task reaches a terminal state.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      responses:
+        '200':
+          description: Video task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixMediaTask'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/videos/{id}/content:
+    get:
+      operationId: downloadAIHubMixVideo
+      tags:
+      - AIHubMix Unified API
+      summary: Download an AIHubMix video
+      description: Downloads the primary video result from a completed video task.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      responses:
+        '200':
+          description: Video bytes
+          content:
+            video/mp4:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/tasks:
+    get:
+      operationId: listAIHubMixTasks
+      tags:
+      - AIHubMix Unified API
+      summary: List unified AIHubMix tasks
+      description: Returns read-only snapshots of image, video, and recoverable LLM tasks created by the current API key.
+      parameters:
+      - name: object
+        in: query
+        schema:
+          type: string
+          enum:
+          - llm
+          - image
+          - video
+        description: Filter by task object type.
+      - name: status
+        in: query
+        schema:
+          $ref: '#/components/schemas/AIHubMixTaskStatus'
+        description: Filter by task status.
+      - name: model
+        in: query
+        schema:
+          type: string
+        description: Filter by exact model ID.
+      - $ref: '#/components/parameters/AIHubMixAfter'
+      - $ref: '#/components/parameters/AIHubMixLimit'
+      - $ref: '#/components/parameters/AIHubMixOrder'
+      responses:
+        '200':
+          description: Unified task list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixUnifiedTaskList'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/tasks/{id}:
+    get:
+      operationId: getAIHubMixTask
+      tags:
+      - AIHubMix Unified API
+      summary: Get a unified AIHubMix task
+      description: Returns a read-only task snapshot. Poll active media through the image or video detail endpoint instead.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      responses:
+        '200':
+          description: Unified task snapshot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixUnifiedTask'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/tasks/{id}/content:
+    get:
+      operationId: downloadAIHubMixTaskContent
+      tags:
+      - AIHubMix Unified API
+      summary: Get the primary unified task result
+      description: Downloads a single media artifact or returns an archived LLM response. Multi-result tasks require the result-specific endpoint.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      responses:
+        '200':
+          description: Task result
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /ai/v1/tasks/{id}/content/{result_id}:
+    get:
+      operationId: downloadAIHubMixTaskResult
+      tags:
+      - AIHubMix Unified API
+      summary: Get a specific unified task result
+      description: Downloads one result from a task with multiple artifacts.
+      parameters:
+      - $ref: '#/components/parameters/AIHubMixTaskId'
+      - $ref: '#/components/parameters/AIHubMixResultId'
+      responses:
+        '200':
+          description: Task result bytes
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /api/v1/models:
+    get:
+      operationId: listAIHubMixAsyncModels
+      tags:
+      - AIHubMix Unified API
+      summary: List models with media request Schemas
+      description: Lists image or video models from the public model directory. Use `schema_checked=true` to return models whose request Schema has been reviewed.
+      security: []
+      parameters:
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - image_generation
+          - video
+        description: Media model type. Request image and video models separately.
+      - name: schema_checked
+        in: query
+        schema:
+          type: boolean
+          default: true
+        description: Only return models with reviewed request Schemas.
+      - name: sort_by
+        in: query
+        schema:
+          type: string
+          default: order
+        description: Model list sort field.
+      responses:
+        '200':
+          description: Model list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixModelListResponse'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+  /call/schema/models/{model}/endpoints:
+    get:
+      operationId: getAIHubMixModelEndpoints
+      tags:
+      - AIHubMix Unified API
+      summary: Get a model's supported endpoints and request Schemas
+      description: Returns all currently discoverable protocol endpoints for a media model. Select an endpoint by `path`; do not depend on array order.
+      security: []
+      parameters:
+      - name: model
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Model ID from the public model directory.
+      responses:
+        '200':
+          description: Supported endpoint definitions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIHubMixModelEndpointsResponse'
+        default:
+          $ref: '#/components/responses/AIHubMixError'
+    servers:
+    - url: https://aihubmix.com
+      description: Production
+    - url: https://api.inferera.com
+      description: Backup (use when the primary domain is unreachable)
+components:
+  schemas:
+    AIHubMixFrameImage:
+      type: object
+      properties:
+        frame_type:
+          type: string
+          enum:
+          - first_frame
+          - last_frame
+        image_url:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+          required:
+          - url
+          additionalProperties: false
+      required:
+      - frame_type
+      - image_url
+      additionalProperties: false
+    AIHubMixTaskArtifact:
+      type: object
+      properties:
+        index:
+          type: integer
+          minimum: 0
+          description: Zero-based result order.
+        result_id:
+          type: string
+          nullable: true
+          description: Result ID exposed by unified task snapshots. Media task objects may omit it.
+        type:
+          type: string
+          enum:
+          - file
+        content_type:
+          type: string
+          nullable: true
+        content_url:
+          type: string
+          nullable: true
+          description: Authenticated result download URL.
+        b64_json:
+          type: string
+          nullable: true
+          description: Base64-encoded image result when requested.
+      required:
+      - index
+      - type
+    AIHubMixMediaTask:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Platform task ID.
+        object:
+          type: string
+          enum:
+          - image
+          - video
+        model:
+          type: string
+        status:
+          $ref: '#/components/schemas/AIHubMixTaskStatus'
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixTaskArtifact'
+        error:
+          $ref: '#/components/schemas/AIHubMixTaskError'
+        created_at:
+          type: integer
+          format: int64
+          description: Unix timestamp in seconds.
+        completed_at:
+          type: integer
+          format: int64
+          nullable: true
+        expires_at:
+          type: integer
+          format: int64
+          nullable: true
+          description: Artifact expiry time in Unix seconds; may be null before completion.
+      required:
+      - id
+      - object
+      - model
+      - status
+      - output
+      - error
+      - created_at
+      - completed_at
+      - expires_at
+    GatewayError:
+      type: object
+      description: 'OpenAI-compatible error envelope. Top-level `error` object carrying
+
+        `message` / `type` / `param` / `code`. `request_id` lives in the
+
+        `X-Request-Id` response header, not in the body. The legacy `upstream`
+
+        field is no longer emitted.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+      required:
+      - error
+      properties:
+        error:
+          type: object
+          required:
+          - message
+          properties:
+            message:
+              type: string
+              description: Human-readable error message.
+            type:
+              type: string
+              nullable: true
+              description: 'Error category. OpenAI-compatible values include
+
+                invalid_request_error / authentication_error / permission_error /
+
+                not_found_error / rate_limit_error, etc. The upstream value is
+
+                passed through verbatim; the enum is not fixed.
+
+                '
+            param:
+              type: string
+              nullable: true
+              description: Name of the offending field, when applicable.
+            code:
+              nullable: true
+              description: 'Sub-error code. May be a string or integer (the gateway treats
+
+                `code` as an arbitrary type).
+
+                '
+    AIHubMixUnifiedTaskList:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixUnifiedTask'
+        has_more:
+          type: boolean
+        next_after:
+          type: string
+          nullable: true
+      required:
+      - object
+      - data
+      - has_more
+      - next_after
+    AIHubMixModelSummary:
+      type: object
+      properties:
+        model_id:
+          type: string
+        model_name:
+          type: string
+        types:
+          type: string
+          description: Comma-separated model types.
+        input_modalities:
+          type: string
+          description: Comma-separated input modalities.
+        schema_checked:
+          type: boolean
+      required:
+      - model_id
+      - model_name
+      - types
+      - input_modalities
+      - schema_checked
+    AIHubMixTaskStatus:
+      type: string
+      enum:
+      - pending
+      - in_progress
+      - completed
+      - failed
+      - cancelled
+      description: Current task state. Completed, failed, and cancelled are terminal states.
+    AIHubMixImageCreateRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Image model ID.
+        prompt:
+          type: string
+          minLength: 1
+        n:
+          type: integer
+          minimum: 1
+          default: 1
+          nullable: true
+        size:
+          type: string
+          pattern: ^[1-9][0-9]*x[1-9][0-9]*$
+          nullable: true
+        aspect_ratio:
+          type: string
+          nullable: true
+        seed:
+          type: integer
+          nullable: true
+        negative_prompt:
+          type: string
+          nullable: true
+        image:
+          nullable: true
+          description: Single input image as a URL, data URI, Base64 value, or URL object.
+        images:
+          type: array
+          nullable: true
+          items: {}
+        mask:
+          nullable: true
+          description: Optional edit mask.
+        output_format:
+          type: string
+          enum:
+          - png
+          - jpeg
+          - webp
+          default: png
+          nullable: true
+        response_format:
+          type: string
+          enum:
+          - url
+          - b64_json
+          default: url
+          nullable: true
+        async:
+          type: boolean
+          default: false
+        webhook_url:
+          type: string
+          format: uri
+          maxLength: 512
+        webhook_events_filter:
+          $ref: '#/components/schemas/AIHubMixWebhookEvents'
+        extra:
+          type: object
+          nullable: true
+          additionalProperties: true
+      required:
+      - model
+      - prompt
+      additionalProperties: false
+    AIHubMixModelListResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixModelSummary'
+      required:
+      - success
+      - message
+      - data
+    AIHubMixModelEndpointsResponse:
+      type: object
+      properties:
+        default_endpoint:
+          type: string
+        modality:
+          type: string
+          enum:
+          - image
+          - video
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixEndpointDefinition'
+      required:
+      - default_endpoint
+      - modality
+      - endpoints
+    AIHubMixTaskError:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          description: Stable task error code.
+        message:
+          type: string
+          description: Human-readable error message.
+        upstream_detail:
+          description: Optional upstream diagnostic detail.
+      required:
+      - code
+      - message
+    AIHubMixMediaTaskList:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixMediaTask'
+        has_more:
+          type: boolean
+        next_after:
+          type: string
+          nullable: true
+      required:
+      - object
+      - data
+      - has_more
+      - next_after
+    AIHubMixWebhookEvents:
+      type: array
+      minItems: 1
+      uniqueItems: true
+      items:
+        type: string
+        enum:
+        - completed
+        - failed
+        - cancelled
+    AIHubMixUnifiedTask:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+          - llm
+          - image
+          - video
+        model:
+          type: string
+        status:
+          $ref: '#/components/schemas/AIHubMixTaskStatus'
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/AIHubMixTaskArtifact'
+        error:
+          $ref: '#/components/schemas/AIHubMixTaskError'
+        created_at:
+          type: integer
+          format: int64
+        completed_at:
+          type: integer
+          format: int64
+          nullable: true
+        expires_at:
+          type: integer
+          format: int64
+          nullable: true
+      required:
+      - id
+      - object
+      - model
+      - status
+      - output
+      - error
+      - created_at
+      - completed_at
+      - expires_at
+    AIHubMixVideoCreateRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Video model ID.
+        prompt:
+          type: string
+          minLength: 1
+        duration:
+          type: integer
+          nullable: true
+          description: Video duration in seconds. Allowed values are model-specific.
+        aspect_ratio:
+          type: string
+          default: '16:9'
+          nullable: true
+        resolution:
+          type: string
+          enum:
+          - 480p
+          - 720p
+          - 1080p
+          - 1K
+          - 2K
+          - 4K
+          nullable: true
+        size:
+          type: string
+          pattern: ^[1-9][0-9]*x[1-9][0-9]*$
+          nullable: true
+        seed:
+          type: integer
+          nullable: true
+        input_references:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/AIHubMixMediaReference'
+        frame_images:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/AIHubMixFrameImage'
+        generate_audio:
+          type: boolean
+          nullable: true
+        webhook_url:
+          type: string
+          format: uri
+          maxLength: 512
+        webhook_events_filter:
+          $ref: '#/components/schemas/AIHubMixWebhookEvents'
+        extra:
+          type: object
+          nullable: true
+          additionalProperties: true
+      required:
+      - model
+      - prompt
+      additionalProperties: false
+    AIHubMixMediaReference:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - image_url
+          - video_url
+          - audio_url
+        url:
+          type: string
+          format: uri
+      required:
+      - type
+      - url
+      additionalProperties: false
+    AIHubMixEndpointDefinition:
+      type: object
+      properties:
+        endpoint:
+          type: string
+        method:
+          type: string
+        path:
+          type: string
+        content_types:
+          type: array
+          items:
+            type: string
+        lifecycle:
+          type: object
+          additionalProperties: true
+        request:
+          type: object
+          properties:
+            schema:
+              type: object
+              additionalProperties: true
+          required:
+          - schema
+      required:
+      - endpoint
+      - method
+      - path
+      - content_types
+      - lifecycle
+      - request
+  parameters:
+    AIHubMixOrder:
+      name: order
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: desc
+      description: Task creation order.
+    AIHubMixAfter:
+      name: after
+      in: query
+      schema:
+        type: string
+      description: Pagination cursor returned as `next_after` by the previous page.
+    AIHubMixLimit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+      description: Number of tasks to return.
+    AIHubMixTaskId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: AIHubMix task ID.
+    AIHubMixResultId:
+      name: result_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Result ID for a task with multiple artifacts.
+  responses:
+    AIHubMixError:
+      description: AIHubMix task, validation, authentication, routing, artifact, or upstream error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GatewayError'
+  securitySchemes:
+    gatewayBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+      description: 'Gateway-issued API key, formatted as `sk-gateway-xxxxxxxx`.
+
+        Used by OpenAI-shaped endpoints (/v1/chat/completions, etc.).
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayAnthropicKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Used by Anthropic-shaped endpoints (/v1/messages). The value is
+
+        the gateway API key, shared with OpenAI-shaped endpoints. Clients
+
+        identifying as anthropic-sdk-* will use this header.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayGeminiKey:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: 'Used by Gemini-shaped endpoints (/v1beta/...). The value is the
+
+        gateway API key, shared with other endpoint shapes. The google-genai
+
+        SDK uses this header by default.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+    gatewayGeminiQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: 'Query-parameter fallback for Gemini-shaped endpoints. Some SDKs
+
+        and tools only support the `?key=` form. Value is the same as
+
+        `gatewayGeminiKey`.
+
+        '
+      x-source:
+        from: gateway
+        authority: gateway
+x-refined-from:
+- aihubmix-docs-openapi.json
+- aihubmix-openapi.yml

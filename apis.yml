@@ -94,26 +94,15 @@ common:
 - type: MCPServer
   url: https://aihubmix.com/mcp
 apis:
-- aid: aihubmix:aihubmix-gateway-api
-  name: AIHubMix Gateway API
-  description: OpenAI-, Anthropic- and Gemini-compatible model gateway plus AIHubMix
-    unified image, video, task and model-catalog endpoints, authenticated with a gateway
-    API key.
+- aid: aihubmix:aihubmix-aihubmix-unified-api-api
+  name: AIHubMix AIHubMix Unified API
+  description: AIHubMix native image, video, task, and model-discovery endpoints.
   humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
-  baseURL: https://aihubmix.com
   tags:
-  - AI
-  - LLM
-  - Model Routing
+  - AIHubMix Unified API
   properties:
   - type: OpenAPI
-    url: openapi/aihubmix-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.aihubmix.com/openapi.json
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted, gateway)
-    url: https://aihubmix.com/openapi.json
+    url: openapi/aihubmix-aihubmix-unified-api-api-openapi.yml
   - type: Documentation
     url: https://docs.aihubmix.com/en
   - type: JSONSchema
@@ -128,7 +117,76 @@ apis:
     url: json-schema/aihubmix-create-image-request-schema.json
   - type: JSONSchema
     url: json-schema/aihubmix-create-transcription-request-schema.json
-  image: https://aihubmix.com/og/default.png
+- aid: aihubmix:aihubmix-anthropic-compatible-api
+  name: AIHubMix Anthropic Compatible API
+  description: Anthropic-native endpoints (messages with Anthropic protocol).
+  humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
+  tags:
+  - Anthropic Compatible
+  properties:
+  - type: OpenAPI
+    url: openapi/aihubmix-anthropic-compatible-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aihubmix.com/en
+  - type: JSONSchema
+    url: json-schema/aihubmix-anthropic-create-message-params-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-chat-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-moderation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-image-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-transcription-request-schema.json
+- aid: aihubmix:aihubmix-google-vertex-ai-compatible-api
+  name: AIHubMix Google Vertex AI Compatible API
+  description: Google Gemini / Vertex AI endpoints.
+  humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
+  tags:
+  - Google Vertex AI Compatible
+  properties:
+  - type: OpenAPI
+    url: openapi/aihubmix-google-vertex-ai-compatible-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aihubmix.com/en
+  - type: JSONSchema
+    url: json-schema/aihubmix-anthropic-create-message-params-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-chat-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-moderation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-image-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-transcription-request-schema.json
+- aid: aihubmix:aihubmix-openai-compatible-api
+  name: AIHubMix OpenAI Compatible API
+  description: >-
+    OpenAI-compatible endpoints (chat, completions, embeddings, images, audio, videos, moderations).
+  humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
+  tags:
+  - OpenAI Compatible
+  properties:
+  - type: OpenAPI
+    url: openapi/aihubmix-openai-compatible-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aihubmix.com/en
+  - type: JSONSchema
+    url: json-schema/aihubmix-anthropic-create-message-params-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-chat-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-moderation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-completion-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-image-request-schema.json
+  - type: JSONSchema
+    url: json-schema/aihubmix-create-transcription-request-schema.json
 x-enrichment:
   date: '2026-10-13'
   status: enriched
