@@ -16,6 +16,14 @@ created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
+- Artificial Intelligence
+- LLM
+- Model Routing
+- AI Gateway
+- Generative AI
+- MCP
+tags_raw:
+- Company
 - AI
 - Artificial Intelligence
 - LLM
@@ -169,6 +177,8 @@ apis:
     OpenAI-compatible endpoints (chat, completions, embeddings, images, audio, videos, moderations).
   humanURL: https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion
   tags:
+  - OpenAI-Compatible
+  tags_raw:
   - OpenAI Compatible
   properties:
   - type: OpenAPI
