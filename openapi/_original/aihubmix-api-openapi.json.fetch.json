@@ -1,0 +1,12 @@
+{
+ "url": "https://aihubmix.com/openapi.json",
+ "requested_url": "https://aihubmix.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 1043933,
+ "sha256": "f293fe0500c2f31c5b51e3dc30692f3986881f7c7cb59042eb2b8bd001fd91ad",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}

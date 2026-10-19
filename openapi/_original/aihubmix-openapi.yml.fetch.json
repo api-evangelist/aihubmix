@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.aihubmix.com/openapi.json",
+ "requested_url": "https://docs.aihubmix.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 898981,
+ "sha256": "0dfd8d5c3b27ff02457ca5f5a2b199db9b30080be3b77c804c2b1991dda23a14",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
