@@ -1,8 +1,8 @@
 name: AIHubMix MCP Server
 generated: '2026-10-13'
 method: probed
-source: https://aihubmix.com/mcp (initialize + tools/list, anonymous, HTTP 200; serverInfo
-  aihubmix-mcp 0.7.0)
+source: https://aihubmix.com/mcp (initialize + tools/list, anonymous, HTTP 200; serverInfo aihubmix-mcp
+  0.7.0)
 status: live
 deployment:
   mode: remote
@@ -13,28 +13,24 @@ also_served_at:
 - https://api.aihubmix.com/mcp
 docs_search_server:
   endpoint: https://docs.aihubmix.com/mcp
-  note: Documentation-search MCP server on the docs host (tools/list returned search_ai_hub_mix
-    over text/event-stream).
+  note: Documentation-search MCP server on the docs host (tools/list returned search_ai_hub_mix over text/event-stream).
 tools:
 - name: ping
-  description: 'Health-check every configured gateway endpoint (with latency) and
-    report which one is active. Diagnostic: returns ok=false with reasons instead
-    of erroring when endpoints are down.'
+  description: 'Health-check every configured gateway endpoint (with latency) and report which one is
+    active. Diagnostic: returns ok=false with reasons instead of erroring when endpoints are down.'
   inputSchema:
     $schema: http://json-schema.org/draft-07/schema#
     type: object
     properties: {}
 - name: models-list
-  description: Search the live AIHubMix model catalog with pricing (USD per 1K tokens),
-    context window, modalities and features. All filters are optional and combined
-    with AND. Public data, no API key needed.
+  description: Search the live AIHubMix model catalog with pricing (USD per 1K tokens), context window,
+    modalities and features. All filters are optional and combined with AND. Public data, no API key needed.
   inputSchema:
     type: object
     properties:
       search:
         type: string
-        description: Full-text search over model id, name and description, e.g. 'gpt-5',
-          'claude', 'reasoning'
+        description: Full-text search over model id, name and description, e.g. 'gpt-5', 'claude', 'reasoning'
       type:
         type: string
         enum:
@@ -59,8 +55,7 @@ tools:
         - context_length
         - coding
         - order
-        description: model_ratio = price, context_length, coding = coding models first,
-          order = default
+        description: model_ratio = price, context_length, coding = coding models first, order = default
       sort_order:
         type: string
         enum:
@@ -78,9 +73,8 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: model-get
-  description: Fetch full details for a single model by exact model_id (pricing, full
-    description, capabilities). Returns close-match suggestions when the id is unknown.
-    Public data, no API key needed.
+  description: Fetch full details for a single model by exact model_id (pricing, full description, capabilities).
+    Returns close-match suggestions when the id is unknown. Public data, no API key needed.
   inputSchema:
     type: object
     properties:
@@ -94,16 +88,16 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: credits-get
-  description: 'Account balance for the calling API key: total quota, used and remaining
-    (USD), plus key expiry. Requires an API key.'
+  description: 'Account balance for the calling API key: total quota, used and remaining (USD), plus key
+    expiry. Requires an API key.'
   inputSchema:
     $schema: http://json-schema.org/draft-07/schema#
     type: object
     properties: {}
 - name: chat-send
-  description: Send one non-streaming chat message to any AIHubMix model and get the
-    reply with token usage and latency. Intended for quick model testing/comparison
-    from the editor. Requires an API key and CONSUMES CREDITS.
+  description: Send one non-streaming chat message to any AIHubMix model and get the reply with token
+    usage and latency. Intended for quick model testing/comparison from the editor. Requires an API key
+    and CONSUMES CREDITS.
   inputSchema:
     type: object
     properties:
@@ -156,11 +150,10 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: image-generate
-  description: 'Generate image(s) across 23 models / 8 families. Text-to-image and
-    image-to-image (pass input_reference). Models: nano-banana-pro/nano-banana-2 (Gemini
-    native: aspect_ratio, size 1K/2K/4K, google_search); gpt-image-1.5/gpt-image-1/gpt-image-1-mini/dall-e-3
-    (OpenAI: size, n, quality, background, output_format); imagen-4.0-ultra/imagen-4.0/imagen-4.0-fast/imagen-3.0
-    (aspect_ratio, n); flux-2-pro/flu'
+  description: 'Generate image(s) across 23 models / 8 families. Text-to-image and image-to-image (pass
+    input_reference). Models: nano-banana-pro/nano-banana-2 (Gemini native: aspect_ratio, size 1K/2K/4K,
+    google_search); gpt-image-1.5/gpt-image-1/gpt-image-1-mini/dall-e-3 (OpenAI: size, n, quality, background,
+    output_format); imagen-4.0-ultra/imagen-4.0/imagen-4.0-fast/imagen-3.0 (aspect_ratio, n); flux-2-pro/flu'
   inputSchema:
     type: object
     properties:
@@ -208,8 +201,7 @@ tools:
         description: Reference image URL for image-to-image (supported models only)
       size:
         type: string
-        description: OpenAI 1024x1024/1024x1536/1536x1024/auto; Doubao/Wan 1K/2K/4K
-          or WxH; Qwen WxH
+        description: OpenAI 1024x1024/1024x1536/1536x1024/auto; Doubao/Wan 1K/2K/4K or WxH; Qwen WxH
       aspect_ratio:
         type: string
         description: e.g. 1:1, 16:9, 9:16 (Gemini/Imagen/Flux/Ideogram/Wan)
@@ -299,12 +291,11 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: video-generate
-  description: 'Generate a video (submits a task then polls until ready — can take
-    several minutes). Models: seedance-2.0 / seedance-2.0-fast (ByteDance SeeDance,
-    4-15s, resolution 480p/720p/1080p, aspect_ratio, watermark, seed, camera_fixed,
-    generate_audio, image-to-video); sora-2 / sora-2-pro (OpenAI Sora, 4/8/12s, size
-    720x1280…1792x1024, image-to-video); wan-2.7 / wan-2.6 / wan-2.5 (Alibaba Wan,
-    size WxH, ima'
+  description: 'Generate a video (submits a task then polls until ready — can take several minutes). Models:
+    seedance-2.0 / seedance-2.0-fast (ByteDance SeeDance, 4-15s, resolution 480p/720p/1080p, aspect_ratio,
+    watermark, seed, camera_fixed, generate_audio, image-to-video); sora-2 / sora-2-pro (OpenAI Sora,
+    4/8/12s, size 720x1280…1792x1024, image-to-video); wan-2.7 / wan-2.6 / wan-2.5 (Alibaba Wan, size
+    WxH, ima'
   inputSchema:
     type: object
     properties:
@@ -366,9 +357,8 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: docs-search
-  description: Search the official AIHubMix documentation index (docs.aihubmix.com)
-    by keyword; returns page titles, URLs and summaries. Follow up with docs-get to
-    read a page. Public data, no API key needed.
+  description: Search the official AIHubMix documentation index (docs.aihubmix.com) by keyword; returns
+    page titles, URLs and summaries. Follow up with docs-get to read a page. Public data, no API key needed.
   inputSchema:
     type: object
     properties:
@@ -392,15 +382,15 @@ tools:
         description: Max results (default 8)
       search_content:
         type: boolean
-        description: true = search full page bodies and return snippets (slower first
-          call); default searches titles/summaries
+        description: true = search full page bodies and return snippets (slower first call); default searches
+          titles/summaries
     required:
     - query
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: docs-get
-  description: Fetch one documentation page from docs.aihubmix.com as markdown (use
-    URLs returned by docs-search). Public data, no API key needed.
+  description: Fetch one documentation page from docs.aihubmix.com as markdown (use URLs returned by docs-search).
+    Public data, no API key needed.
   inputSchema:
     type: object
     properties:
@@ -413,18 +403,17 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: account-get
-  description: 'Account-level profile and balance for the Access Key owner: username,
-    group, total balance and used amount (USD), request count. This is the ACCOUNT
-    balance — credits-get shows the calling sk- key''s balance. Requires an Access
-    Key (AIHUBMIX_ACCESS_KEY or the X-Aihubmix-Access-Key header).'
+  description: 'Account-level profile and balance for the Access Key owner: username, group, total balance
+    and used amount (USD), request count. This is the ACCOUNT balance — credits-get shows the calling
+    sk- key''s balance. Requires an Access Key (AIHUBMIX_ACCESS_KEY or the X-Aihubmix-Access-Key header).'
   inputSchema:
     $schema: http://json-schema.org/draft-07/schema#
     type: object
     properties: {}
 - name: keys-list
-  description: List the account's API keys with status, remaining/used quota (USD),
-    expiry and model/IP restrictions. Key values are masked (last 4 chars only). Requires
-    an Access Key (AIHUBMIX_ACCESS_KEY or the X-Aihubmix-Access-Key header).
+  description: List the account's API keys with status, remaining/used quota (USD), expiry and model/IP
+    restrictions. Key values are masked (last 4 chars only). Requires an Access Key (AIHUBMIX_ACCESS_KEY
+    or the X-Aihubmix-Access-Key header).
   inputSchema:
     type: object
     properties:
@@ -436,11 +425,35 @@ tools:
     additionalProperties: false
     $schema: http://json-schema.org/draft-07/schema#
 - name: account-models
-  description: Models usable by THIS account's group (may differ from the public catalog
-    in models-list). Requires an Access Key (AIHUBMIX_ACCESS_KEY or the X-Aihubmix-Access-Key
-    header).
+  description: Models usable by THIS account's group (may differ from the public catalog in models-list).
+    Requires an Access Key (AIHUBMIX_ACCESS_KEY or the X-Aihubmix-Access-Key header).
   inputSchema:
     $schema: http://json-schema.org/draft-07/schema#
     type: object
     properties: {}
 tools_list_file: mcp/aihubmix-mcp-tools-list.json
+tool_quality:
+  tool_count: 12
+  tokens_total: 3518
+  tokens_per_tool_median: 161
+  heavy_tools: []
+  heavy_tool_count: 0
+  params_total: 52
+  params_undescribed: 2
+  params_described_pct: 96.2
+  tools_with_undescribed_params: 2
+  tools_annotated: 12
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 0
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/aihubmix-mcp-tools-list.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.
