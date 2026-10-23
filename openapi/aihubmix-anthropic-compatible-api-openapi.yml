@@ -5774,3 +5774,9 @@ components:
 x-refined-from:
 - aihubmix-docs-openapi.json
 - aihubmix-openapi.yml
+x-provenance:
+  method: harvested
+  publisher: AIHubMix
+  source: https://docs.aihubmix.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
