@@ -64,5 +64,133 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-AIHubMix is a company surfaced via the API Evangelist harvest backlog (source: market-gap:ai-model-routing) and added to the network as a stub for full-pipeline profiling.
-- https://aihubmix.com
+AIHubMix is an AI model routing gateway that exposes hundreds of large language, image, video and audio models from many vendors behind one API key, with OpenAI-compatible, Anthropic-compatible and Google Gemini/Vertex-compatible endpoints plus its own unified image, video and task APIs, pay-as-you-go billing, a remote MCP server, a command-line tool and agent skills.
+
+**Areas:** Company · Artificial Intelligence · LLM · Model Routing · AI Gateway · Generative AI · MCP
+
+## AIHubMix on APIs.io
+
+Everything profiled for AIHubMix is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aihubmix/](https://apis.io/providers/aihubmix/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [AIHubMix AIHubMix Unified API](https://apis.io/apis/aihubmix/aihubmix-aihubmix-unified-api-api/) — AIHubMix native image, video, task, and model-discovery endpoints.
+- [AIHubMix Anthropic Compatible API](https://apis.io/apis/aihubmix/aihubmix-anthropic-compatible-api/) — Anthropic-native endpoints (messages with Anthropic protocol).
+- [AIHubMix Google Vertex AI Compatible API](https://apis.io/apis/aihubmix/aihubmix-google-vertex-ai-compatible-api/) — Google Gemini / Vertex AI endpoints.
+- [AIHubMix OpenAI Compatible API](https://apis.io/apis/aihubmix/aihubmix-openai-compatible-api/) — OpenAI-compatible endpoints (chat, completions, embeddings, images, audio, videos, moderations).
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [mcp](https://apis.io/servers/aihubmix/mcp/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Aihubmix Agentic Access](https://apis.io/agentic-access/aihubmix/aihubmix-agentic-access/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [CreateMessageParams](https://apis.io/schemas/aihubmix/aihubmix-anthropic-create-message-params/)
+- [CreateChatCompletionRequest](https://apis.io/schemas/aihubmix/aihubmix-create-chat-completion-request/)
+- [CreateCompletionRequest](https://apis.io/schemas/aihubmix/aihubmix-create-completion-request/)
+- [CreateImageRequest](https://apis.io/schemas/aihubmix/aihubmix-create-image-request/)
+- [CreateModerationResponse](https://apis.io/schemas/aihubmix/aihubmix-create-moderation-response/)
+- [CreateTranscriptionRequest](https://apis.io/schemas/aihubmix/aihubmix-create-transcription-request/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Aihubmix Context](https://apis.io/jsonld/aihubmix/aihubmix-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [AIHubMix API Rules](https://apis.io/rules/aihubmix/aihubmix-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aihubmix Authentication](https://apis.io/security/aihubmix/aihubmix-authentication/)
+- [Aihubmix Domain Security](https://apis.io/security/aihubmix/aihubmix-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aihubmix.com)
+- [Documentation](https://docs.aihubmix.com/en)
+- [Getting started](https://docs.aihubmix.com/en/quick-start)
+- [API reference](https://docs.aihubmix.com/en/api-reference/openai-compatible/create-a-chat-completion)
+- [Changelog](https://docs.aihubmix.com/en/update/News)
+- [Blog](https://aihubmix.com/blog)
+- [Terms of service](https://aihubmix.com/legal/terms)
+- [Privacy policy](https://aihubmix.com/legal/privacy)
+- [GitHub](https://github.com/AIhubmix)
+- [Status](https://status.aihubmix.com)
+
+## API Evangelist rating
+
+**Kin Score 52.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.7 |
+| Contract quality | 64.0 |
+| Contract governance | 22.0 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 73.8 |
+| Access clarity | 34.2 |
+
+**Agent readiness 44.1** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aihubmix/](https://apis.io/providers/aihubmix/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AIHubMix: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aihubmix/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
