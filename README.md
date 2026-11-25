@@ -93,7 +93,7 @@ Model Context Protocol servers that expose the API to agents.
 
 Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Aihubmix Agentic Access](https://apis.io/agentic-access/aihubmix/aihubmix-agentic-access/)
+- [AIHubMix Agentic Access](https://apis.io/agentic-access/aihubmix/aihubmix-agentic-access/)
 
 #### JSON Schema (6)
 
@@ -122,8 +122,8 @@ Spectral rulesets for the provider's contracts.
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Aihubmix Authentication](https://apis.io/security/aihubmix/aihubmix-authentication/)
-- [Aihubmix Domain Security](https://apis.io/security/aihubmix/aihubmix-domain-security/)
+- [AIHubMix Authentication](https://apis.io/security/aihubmix/aihubmix-authentication/)
+- [AIHubMix Domain Security](https://apis.io/security/aihubmix/aihubmix-domain-security/)
 
 ## Where to find this API
 
@@ -142,18 +142,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 52.2** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 54.6** — strong · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 71.7 |
-| Contract quality | 64.0 |
+| Contract quality | 69.6 |
 | Contract governance | 22.0 |
-| Operational transparency | 36.8 |
+| Operational transparency | 38.1 |
 | Developer ergonomics | 73.8 |
-| Access clarity | 34.2 |
+| Access clarity | 42.6 |
 
-**Agent readiness 44.1** — agent-ready (gated down from agent-native)
+**Agent readiness 42.5** — agent-ready (gated down from agent-native)
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -173,13 +173,17 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agent Card | — |
 | Dry Run Mode | — |
 | Delegated Identity | served (partial credit) |
-| Protected Resource Metadata | verified |
+| Protected Resource Metadata | — |
 | Dynamic Client Registration | yes |
 | Agentic Commerce | — |
 | Pagination Ratio | partial |
 | Operation Distinctiveness | distinct |
+| MCP Tool Quality | full |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | yes |
 
-**Regulatory alignment 22.7** — AI & Biometrics
+**Regulatory alignment 17.3** — AI & Biometrics
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aihubmix/](https://apis.io/providers/aihubmix/).
 
